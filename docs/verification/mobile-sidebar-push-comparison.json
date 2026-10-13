@@ -1,0 +1,17 @@
+{
+  "reference": {
+    "clientWidth": 375,
+    "contentX": 260,
+    "rootWidth": 375,
+    "sidebarX": 0,
+    "width": 260
+  },
+  "local": {
+    "clientWidth": 375,
+    "contentX": 260,
+    "rootWidth": 375,
+    "sidebarX": 0,
+    "width": 260
+  },
+  "same": true
+}

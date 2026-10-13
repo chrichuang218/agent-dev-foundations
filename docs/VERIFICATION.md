@@ -2,6 +2,25 @@
 
 日期：2026-10-13（Asia/Shanghai）。本记录区分正文完整性、网站功能和示例检查，不把构建通过等同于教程全部语义正确。
 
+## v0.1.1 发布验收
+
+用户在本地预览后明确要求部署发布，解除下方手机侧栏阶段的仅本地限制。发布前在 `/agent-dev-foundations/` 路径执行 `npm run verify` 全部通过：16 个文件类型检查无诊断，133 个 HTML（含跳转页），125 篇正文及 16,238 个原文块，7,994 个内部链接引用与 2,494 个锚点引用；搜索 1,636 条入口及 1,511 个小节锚点完整。
+
+手机交互沿用下方本次实测证据，教程正文未改；配置示例检查通过，不代表执行了全部教程示例。线上构建、部署与固定提交以 [GitHub Actions](https://github.com/chrichuang218/agent-dev-foundations/actions) 和 [v0.1.1 Release](https://github.com/chrichuang218/agent-dev-foundations/releases/tag/v0.1.1) 的最终记录为准。
+
+## 最新本地预览：手机侧栏按参考推移
+
+本轮用户要求先本地 review，未提交、推送或触发线上部署。`http://127.0.0.1:4323/` 已更新；线上 v0.1.0 保持不变。
+
+- 删除手机 dialog、独立 X、遮罩与重复目录。恢复原站 `<main>` 内的按钮、单一侧栏及相邻正文结构，使用主题的 `body.close` 推移；手机 260px，桌面仍为 300px。按用户明确要求，展开时仍显示汉堡而非 X。
+- 390×844 浏览器对照：两站侧栏宽 260px、展开后侧栏 x=0 / 正文 x=260；根内容宽均为 375px（其余为浏览器滚动条），没有新增横向页面滚动。见 [几何对照](verification/mobile-sidebar-push-comparison.json)。
+- 实测打开菜单、点击露出的正文收起、Escape 及焦点回菜单、分区折叠保持展开、切换章节后收起；搜索输入保持展开，点击搜索结果进入对应章节并收起。
+- 手机“模块定位”小节跳转后标题距顶部约 20px，正文回到 x=0，window 与 main 横向滚动均为 0。桌面收起/恢复 300px 侧栏正常；控制台无 error。
+- `check`：16 个文件，0 errors / warnings / hints；`build`：132 个内容页面和 1 个跳转页；`site:check`、`search:check`、`http:check` 通过，125 篇及 16,238 个原文块保持完整。
+- 截图：[本地展开](verification/mobile-sidebar-push-open.jpg)、[本地收起](verification/mobile-sidebar-push-closed.jpg)、[参考展开](verification/mobile-sidebar-reference-open.jpg)。临时视口已恢复；使用浏览器窄屏验证，没有声称进行了 iPhone 真机测试。
+
+源码依据与适配边界见 [手机侧栏记录](reference/mobile-sidebar.md)。
+
 ## 最新：更名为 Agent Dev Foundations
 
 - 项目与 npm 包名改为 `agent-dev-foundations`，网站标题、首页、侧栏、页面标题后缀与图标已更新；定位为面向后端程序员的 Agent 开发基础知识。

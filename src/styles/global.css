@@ -36,20 +36,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .sidebar .search .results-panel { padding-top: 12px; }
 .sidebar .matching-post h2 { font-size: 16px; }
 .sidebar .matching-post p { display: -webkit-box; font-size: 14px; line-height: 1.7; }
-.desktop-sidebar { left: 0; right: auto; transform: none; }
-.sidebar-hidden .desktop-sidebar { transform: translateX(-100%); }
-.sidebar-hidden .content { margin-left: 0; }
-.sidebar-toggle { left: 0; }
-.sidebar-hidden .sidebar-toggle { left: 0; transform: none; }
-.mobile-sidebar:not([open]) { display: none; }
-.mobile-sidebar[open] {
-  display: flex; position: fixed; inset: 0 auto 0 0; transform: none;
-  width: min(var(--sidebar-width), 88vw); max-width: none;
-  height: 100dvh; max-height: none; margin: 0; border: 0;
-}
-.mobile-sidebar::backdrop { background: #0006; }
-.close-drawer { position: absolute; right: 9px; top: 8px; z-index: 2; width: 32px; height: 32px; padding: 0; border: 0; background: transparent; color: var(--base-color); font-size: 24px; cursor: pointer; }
-body.drawer-open { overflow: hidden; }
+.sidebar-toggle:focus-visible { outline: none; }
+.sidebar-toggle:focus-visible .sidebar-toggle-button { outline: 2px solid var(--theme-color); outline-offset: 3px; }
 
 .markdown-section { min-width: 0; }
 .markdown-section img { height: auto; }
@@ -66,9 +54,11 @@ body.drawer-open { overflow: hidden; }
 .table-scroll { overflow-x: auto; }
 .table-scroll table { display: table; min-width: 100%; margin: 1em 0; }
 @media (max-width: 767px) {
-  .desktop-sidebar { display: none; }
-  .content, .sidebar + .content { margin-left: 0; }
-  .sidebar-toggle, .sidebar-hidden .sidebar-toggle { left: 0; transform: none; }
+  :root { --sidebar-width: 260px; }
+  /* Keep the reference's push-aside behavior, but honor the request for no X. */
+  body.close .sidebar-toggle span:nth-child(1) { transform: none; margin-top: calc(0px - var(--sidebar-toggle-icon-height)/2); }
+  body.close .sidebar-toggle span:nth-child(2) { display: block; }
+  body.close .sidebar-toggle span:nth-child(3) { transform: none; margin-top: calc(var(--sidebar-toggle-icon-height)/2); }
   .markdown-section { padding: 64px 22px 30px; }
   .markdown-section > h1:first-child { padding-right: 0; }
 }

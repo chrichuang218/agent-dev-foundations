@@ -1,22 +1,24 @@
 import './search';
 
-const drawer = document.querySelector<HTMLDialogElement>('#chapter-drawer');
-const desktopSidebar = document.querySelector<HTMLElement>('#desktop-sidebar');
+const sidebar = document.querySelector<HTMLElement>('#desktop-sidebar');
 const sidebarToggle = document.querySelector<HTMLButtonElement>('.sidebar-toggle');
+const content = document.querySelector<HTMLElement>('.content');
 const mobile = window.matchMedia('(max-width: 767px)');
-let drawerAnchor: { target: HTMLElement; hash: string } | null = null;
 
-function sidebarIsVisible(sidebar: HTMLElement) {
-  return sidebar === drawer ? drawer.open : !mobile.matches && !document.body.classList.contains('sidebar-hidden');
+// The reference theme uses body.close for mobile-open and desktop-collapsed.
+function sidebarIsVisible() {
+  const closed = document.body.classList.contains('close');
+  return mobile.matches ? closed : !closed;
 }
 
-function sidebarScrollKey(sidebar: HTMLElement) {
-  const section = sidebar.querySelector<HTMLElement>('.section-current[data-section]')?.dataset.section ?? 'index';
-  return `typescript-guide:sidebar:${section}:${sidebar.id}`;
+function sidebarScrollKey(element: HTMLElement) {
+  const section = element.querySelector<HTMLElement>('.section-current[data-section]')?.dataset.section ?? 'index';
+  const surface = mobile.matches ? 'chapter-drawer' : 'desktop-sidebar';
+  return `typescript-guide:sidebar:${section}:${surface}`;
 }
 
-function saveSidebarScroll(sidebar: HTMLElement | null) {
-  if (!sidebar || !sidebarIsVisible(sidebar) || sidebar.querySelector<HTMLInputElement>('[data-search]')?.value.trim()) return;
+function saveSidebarScroll() {
+  if (!sidebar || !sidebarIsVisible() || sidebar.querySelector<HTMLInputElement>('[data-search]')?.value.trim()) return;
   try {
     sessionStorage.setItem(sidebarScrollKey(sidebar), String(sidebar.scrollTop));
   } catch {
@@ -24,88 +26,57 @@ function saveSidebarScroll(sidebar: HTMLElement | null) {
   }
 }
 
-function revealSidebarItem(sidebar: HTMLElement, item: HTMLElement | null) {
+function revealSidebarItem(element: HTMLElement, item: HTMLElement | null) {
   if (!item || !item.getClientRects().length) return;
-  const bounds = sidebar.getBoundingClientRect();
+  const bounds = element.getBoundingClientRect();
   const position = item.getBoundingClientRect();
-  if (position.top < bounds.top + 8) sidebar.scrollTop += position.top - bounds.top - 8;
-  else if (position.bottom > bounds.bottom - 8) sidebar.scrollTop += position.bottom - bounds.bottom + 8;
+  if (position.top < bounds.top + 8) element.scrollTop += position.top - bounds.top - 8;
+  else if (position.bottom > bounds.bottom - 8) element.scrollTop += position.bottom - bounds.bottom + 8;
 }
 
-function restoreSidebarScroll(sidebar: HTMLElement | null) {
-  if (!sidebar || !sidebarIsVisible(sidebar) || sidebar.querySelector<HTMLInputElement>('[data-search]')?.value.trim()) return;
+function restoreSidebarScroll(element: HTMLElement | null) {
+  if (!element || !sidebarIsVisible() || element.querySelector<HTMLInputElement>('[data-search]')?.value.trim()) return;
   try {
-    const saved = sessionStorage.getItem(sidebarScrollKey(sidebar));
-    if (saved !== null && Number.isFinite(Number(saved)) && Number(saved) >= 0) sidebar.scrollTop = Number(saved);
+    const saved = sessionStorage.getItem(sidebarScrollKey(element));
+    if (saved !== null && Number.isFinite(Number(saved)) && Number(saved) >= 0) element.scrollTop = Number(saved);
   } catch {
     // Reveal the current chapter even when a saved position cannot be read.
   }
-  revealSidebarItem(sidebar, sidebar.querySelector<HTMLElement>('.section-children a[aria-current="page"]'));
+  revealSidebarItem(element, element.querySelector<HTMLElement>('.section-children a[aria-current="page"]'));
 }
 
-for (const sidebar of [desktopSidebar, drawer]) {
-  sidebar?.addEventListener('scroll', () => saveSidebarScroll(sidebar), { passive: true });
-}
-window.addEventListener('pagehide', () => {
-  saveSidebarScroll(desktopSidebar);
-  saveSidebarScroll(drawer);
-});
-
-function closeDrawer() {
-  saveSidebarScroll(drawer);
-  drawer?.close();
+function updateSidebarState() {
+  const open = sidebarIsVisible();
+  sidebarToggle?.setAttribute('aria-expanded', String(open));
+  if (sidebar) sidebar.inert = !open;
+  if (content) content.inert = mobile.matches && open;
 }
 
-function updateSidebarToggle() {
-  sidebarToggle?.setAttribute('aria-controls', mobile.matches ? 'chapter-drawer' : 'desktop-sidebar');
-  sidebarToggle?.setAttribute('aria-expanded', String(mobile.matches ? Boolean(drawer?.open) : !document.body.classList.contains('sidebar-hidden')));
-  if (mobile.matches) sidebarToggle?.setAttribute('aria-haspopup', 'dialog');
-  else sidebarToggle?.removeAttribute('aria-haspopup');
+function setSidebarOpen(open: boolean) {
+  saveSidebarScroll();
+  document.body.classList.toggle('close', mobile.matches ? open : !open);
+  updateSidebarState();
+  if (open) restoreSidebarScroll(sidebar);
 }
 
-sidebarToggle?.addEventListener('click', () => {
-  if (mobile.matches) {
-    if (drawer?.open) closeDrawer();
-    else {
-      drawer?.showModal();
-      document.body.classList.add('drawer-open');
-      restoreSidebarScroll(drawer);
-    }
-  } else {
-    document.body.classList.toggle('sidebar-hidden');
-    restoreSidebarScroll(desktopSidebar);
-  }
-  updateSidebarToggle();
-});
-document.querySelector('.close-drawer')?.addEventListener('click', closeDrawer);
-drawer?.addEventListener('cancel', () => saveSidebarScroll(drawer));
-drawer?.addEventListener('click', event => {
-  if (event.target === drawer) {
-    const bounds = drawer.getBoundingClientRect();
-    if (event.clientX > bounds.right || event.clientX < bounds.left) closeDrawer();
-  }
-});
-drawer?.addEventListener('close', () => {
-  document.body.classList.remove('drawer-open');
-  updateSidebarToggle();
-  if (drawerAnchor) {
-    const { target, hash } = drawerAnchor;
-    drawerAnchor = null;
-    history.pushState(null, '', hash);
-    if (!target.hasAttribute('tabindex')) target.tabIndex = -1;
-    target.focus({ preventScroll: true });
-    target.scrollIntoView({ block: 'start' });
-  } else {
+sidebar?.addEventListener('scroll', saveSidebarScroll, { passive: true });
+window.addEventListener('pagehide', saveSidebarScroll);
+sidebarToggle?.addEventListener('click', () => setSidebarOpen(!sidebarIsVisible()));
+// In the reference theme the same transparent toggle covers the shifted body.
+// It closes the menu on a tap, without a modal or dimmed backdrop.
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && mobile.matches && sidebarIsVisible()) {
+    setSidebarOpen(false);
     sidebarToggle?.focus({ preventScroll: true });
   }
 });
 mobile.addEventListener('change', () => {
-  if (!mobile.matches && drawer?.open) closeDrawer();
-  updateSidebarToggle();
-  if (!mobile.matches) restoreSidebarScroll(desktopSidebar);
+  document.body.classList.remove('close');
+  updateSidebarState();
+  restoreSidebarScroll(sidebar);
 });
-updateSidebarToggle();
-restoreSidebarScroll(desktopSidebar);
+updateSidebarState();
+restoreSidebarScroll(sidebar);
 
 document.querySelectorAll<HTMLAnchorElement>('[data-section-toggle]').forEach(link => {
   link.addEventListener('click', event => {
@@ -129,15 +100,21 @@ document.querySelectorAll<HTMLAnchorElement>('.sidebar-nav a[aria-current="page"
   });
 });
 
-drawer?.querySelectorAll<HTMLAnchorElement>('.section-link[href^="#"]').forEach(link => {
-  link.addEventListener('click', event => {
-    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
-    if (!target) return;
-    event.preventDefault();
-    drawerAnchor = { target, hash: link.hash };
-    closeDrawer();
-  });
+sidebar?.addEventListener('click', event => {
+  if (!mobile.matches || event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  const link = (event.target as Element).closest<HTMLAnchorElement>('a[href]');
+  if (!link) return;
+  setSidebarOpen(false);
+  if (link.pathname !== location.pathname || !link.hash) return;
+  const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+  if (!target) return;
+  event.preventDefault();
+  history.pushState(null, '', link.hash);
+  if (!target.hasAttribute('tabindex')) target.tabIndex = -1;
+  target.focus({ preventScroll: true });
+  // Scroll only vertically while the content is still sliding back into place.
+  const offset = Number.parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+  window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'instant' });
 });
 
 const darkToggle = document.querySelector<HTMLButtonElement>('#dark-toggle');
@@ -188,7 +165,7 @@ const backToTop = document.querySelector<HTMLButtonElement>('.back-to-top');
 backToTop?.addEventListener('click', () => {
   document.querySelector<HTMLElement>('#main-content')?.focus({ preventScroll: true });
   window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
-  restoreSidebarScroll(desktopSidebar);
+  restoreSidebarScroll(sidebar);
 });
 
 const headingLinks = [...document.querySelectorAll<HTMLAnchorElement>('.section-link[href^="#"]')].map(link => ({
@@ -214,8 +191,7 @@ function updateReadingPosition() {
     else item.link.removeAttribute('aria-current');
   }
   if (current && current !== previousHeading) {
-    for (const sidebar of [desktopSidebar, drawer]) {
-      if (!sidebar || !sidebarIsVisible(sidebar) || sidebar.matches(':hover') || sidebar.contains(document.activeElement) || sidebar.querySelector<HTMLInputElement>('[data-search]')?.value.trim()) continue;
+    if (sidebar && sidebarIsVisible() && !sidebar.matches(':hover') && !sidebar.contains(document.activeElement) && !sidebar.querySelector<HTMLInputElement>('[data-search]')?.value.trim()) {
       revealSidebarItem(sidebar, sidebar.querySelector<HTMLElement>('.section-link[aria-current="location"]'));
     }
   }
