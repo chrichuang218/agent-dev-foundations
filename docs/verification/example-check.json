@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-10-13T08:29:21.035Z",
+  "status": "passed",
+  "tools": {
+    "node": "v24.15.0",
+    "typescript": "6.0.3"
+  },
+  "scope": {
+    "selectedArticles": [
+      "config/package-json",
+      "config/dependencies",
+      "config/module-resolution"
+    ],
+    "allArticleSemanticsVerified": false,
+    "runtimeExecution": false,
+    "description": "Only local configuration JSON examples and one selected NodeNext two-file example. No npm commands or generated JavaScript are executed."
+  },
+  "jsonExamples": [
+    {
+      "article": "config/package-json",
+      "kind": "body",
+      "fence": 1
+    },
+    {
+      "article": "config/package-json",
+      "kind": "quick-reference"
+    },
+    {
+      "article": "config/dependencies",
+      "kind": "body",
+      "fence": 1
+    },
+    {
+      "article": "config/module-resolution",
+      "kind": "body",
+      "fence": 1
+    },
+    {
+      "article": "config/module-resolution",
+      "kind": "body",
+      "fence": 2
+    },
+    {
+      "article": "config/module-resolution",
+      "kind": "body",
+      "fence": 4
+    },
+    {
+      "article": "config/module-resolution",
+      "kind": "body",
+      "fence": 5
+    },
+    {
+      "article": "config/module-resolution",
+      "kind": "quick-reference"
+    }
+  ],
+  "selectedTypeScriptExample": {
+    "sourceFile": "content/local/config/module-resolution.md",
+    "sourceSha256": "2bb2e08048d64896ebd9b96aceac70d6aa45ba56414bb19e603b675fa22e6ecb",
+    "mode": "in-memory-compiler",
+    "options": {
+      "target": "ES2022",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "strict": true,
+      "rootDir": "src",
+      "outDir": "dist"
+    },
+    "diagnostics": 0,
+    "emittedFiles": [
+      "message.js",
+      "index.js"
+    ],
+    "esmImportPreserved": true,
+    "runtimeExecution": false
+  }
+}

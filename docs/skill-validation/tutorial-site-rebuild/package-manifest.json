@@ -1,0 +1,32 @@
+[
+  {
+    "file": "agents/openai.yaml",
+    "bytes": 341,
+    "sha256": "481192870e78f4a4cbb5e55c3f1573ea2306e7899ae71c26b3ef8d836e57d787"
+  },
+  {
+    "file": "assets/rebuild-contract.md",
+    "bytes": 1718,
+    "sha256": "290d62df921ad3df36a0c783fc65646ed4c4b59a64182deede18db8086dd22e6"
+  },
+  {
+    "file": "references/case-study.md",
+    "bytes": 8444,
+    "sha256": "a37efd2d7315e994467c54cabcfbe40ce29307950c63581e2fda94d033dfea23"
+  },
+  {
+    "file": "references/content-pipeline.md",
+    "bytes": 5501,
+    "sha256": "864743ee661f2165042be1ed9852b395cd965a3b0d1e17b7cce08ea78957b28b"
+  },
+  {
+    "file": "references/reading-ui.md",
+    "bytes": 5574,
+    "sha256": "ec16e1ca87a5822e1299c374b4f37e1102f4a9b31534035dd25459976a97d589"
+  },
+  {
+    "file": "SKILL.md",
+    "bytes": 7316,
+    "sha256": "1629cd4f50025cf0fa6de4d31f1161bd76ff2debf926d4ed5ab97622a9126587"
+  }
+]

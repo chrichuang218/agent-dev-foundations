@@ -1,0 +1,9 @@
+---
+import { sitePath } from '../lib/site';
+import GuideLayout from '../layouts/GuideLayout.astro';
+import { navigation } from '../lib/content';
+---
+<GuideLayout title="页面未找到" currentPath="/404/" navigation={navigation} headings={[]}>
+  <h1>页面未找到</h1>
+  <ul>{navigation.map(section => <li><a href={sitePath(section.href)}>{section.label}</a></li>)}</ul>
+</GuideLayout>

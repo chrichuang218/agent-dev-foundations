@@ -1,0 +1,62 @@
+---
+import { sitePath } from '../lib/site';
+import { chapterLabel, type ChapterLink, type NavigationSection } from '../lib/navigation';
+
+interface Props {
+  previous?: ChapterLink;
+  next?: ChapterLink;
+  navigation: NavigationSection[];
+  section?: string;
+}
+const { previous, next, navigation, section: currentSection } = Astro.props;
+
+function paginationLink(link?: ChapterLink) {
+  if (!link) return;
+  for (const section of navigation) {
+    let number = 0;
+    for (const group of section.groups) {
+      for (const chapter of group.items) {
+        number++;
+        if (chapter.href === link.href) {
+          return { href: link.href, name: `${number}. ${chapterLabel(chapter.title)}`, chapterName: section.id === currentSection ? group.label : `${section.label} · ${group.label}` };
+        }
+      }
+    }
+  }
+  return { href: link.href, name: link.title, chapterName: '' };
+}
+const prev = paginationLink(previous);
+const following = paginationLink(next);
+---
+{(prev || following) && (
+  <div class="docsify-pagination-container" role="navigation" aria-label="前后章节">
+    {prev && (
+      <div class="pagination-item pagination-item--previous">
+        <a href={sitePath(prev.href)} rel="prev">
+          <div class="pagination-item-label">
+            <svg width="10" height="16" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <polyline fill="none" vector-effect="non-scaling-stroke" points="8,2 2,8 8,14" />
+            </svg>
+            <span>上一篇</span>
+          </div>
+          <div class="pagination-item-title">{prev.name}</div>
+          <div class="pagination-item-subtitle">{prev.chapterName}</div>
+        </a>
+      </div>
+    )}
+    {following && (
+      <div class="pagination-item pagination-item--next">
+        <a href={sitePath(following.href)} rel="next">
+          <div class="pagination-item-label">
+            <span>下一篇</span>
+            <svg width="10" height="16" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <polyline fill="none" vector-effect="non-scaling-stroke" points="2,2 8,8 2,14" />
+            </svg>
+          </div>
+          <div class="pagination-item-title">{following.name}</div>
+          <div class="pagination-item-subtitle">{following.chapterName}</div>
+        </a>
+      </div>
+    )}
+  </div>
+)}

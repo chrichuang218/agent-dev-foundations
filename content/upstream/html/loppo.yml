@@ -1,0 +1,10 @@
+dir: docs
+output: dist
+site: html
+theme: wangdoc
+customization: false
+themeDir: loppo-theme
+direction: ltr
+id: html
+hasComments: true
+isTutorial: true

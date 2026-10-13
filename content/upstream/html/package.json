@@ -1,0 +1,35 @@
+{
+  "name": "html-tutorial",
+  "version": "1.0.0",
+  "description": "HTML 语言教程",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "loppo --site \"HTML 教程\" --id html --theme wangdoc",
+    "build-and-commit": "npm run build && npm run commit",
+    "commit": "gh-pages --dist dist --dest dist/html --branch master --repo git@github.com:wangdoc/website.git",
+    "chapter": "loppo chapter",
+    "server": "loppo server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangdoc/html-tutorial.git"
+  },
+  "keywords": [
+    "HTML",
+    "tutorial"
+  ],
+  "author": "Ruan Yifeng",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/wangdoc/html-tutorial/issues"
+  },
+  "homepage": "https://github.com/wangdoc/html-tutorial#readme",
+  "dependencies": {
+    "gh-pages": "^3.2.3",
+    "loppo": "^0.6.24",
+    "loppo-theme-wangdoc": "^0.6.1"
+  }
+}

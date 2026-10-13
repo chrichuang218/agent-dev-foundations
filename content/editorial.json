@@ -1,0 +1,776 @@
+{
+  "javascript/basic/introduction": {
+    "summary": "JavaScript 是一种嵌入宿主环境运行的动态语言。先区分语言本身、浏览器和其他运行环境，再阅读语法与标准库。",
+    "syntax": "var message = 'Hello, JavaScript';\nmessage;",
+    "related": [
+      "javascript/basic/grammar",
+      "javascript/types/general",
+      "typescript/intro"
+    ],
+    "notes": [
+      "本教程以 ES5 核心语法为主，保留来源的历史背景与宿主环境示例，不是现代 ECMAScript 特性的完整清单。浏览器、服务器和框架介绍仅作语言背景。"
+    ]
+  },
+  "javascript/basic/history": {
+    "summary": "JavaScript 是语言名称，ECMAScript 是对应的语言标准；名称相近不表示 JavaScript 与 Java 是同一种语言。",
+    "syntax": "// JavaScript 的标准名称：ECMAScript\nvar language = 'JavaScript';",
+    "related": [
+      "javascript/basic/introduction",
+      "javascript/oop/strict",
+      "typescript/intro"
+    ],
+    "notes": [
+      "本章是来源版本的历史叙述，时间线保留到原文所载年份；没有更新为当前行业、浏览器或标准版本综述。"
+    ]
+  },
+  "javascript/basic/grammar": {
+    "summary": "语句、变量、条件和循环组成程序的基本控制流程；本章使用 var 讲解声明、作用域与变量提升。",
+    "syntax": "var total = 0;\nfor (var i = 0; i < 3; i++) {\n  total += i;\n}",
+    "related": [
+      "javascript/types/general",
+      "javascript/types/function",
+      "javascript/features/style"
+    ],
+    "notes": [
+      "原文主要使用 var。阅读现代项目中的 let、const 和块级作用域时，也需结合 TypeScript 基本用法及函数章节；var 与 let/const 的作用域规则不能直接互换。"
+    ]
+  },
+  "javascript/types/general": {
+    "summary": "JavaScript 的值具有类型；typeof 可以返回类型名称，但 null、数组和普通对象的检查需要注意边界。",
+    "syntax": "typeof 123; // 'number'\ntypeof 'hello'; // 'string'\ntypeof null; // 'object'",
+    "related": [
+      "javascript/types/null-undefined-boolean",
+      "javascript/types/object",
+      "typescript/types"
+    ],
+    "notes": [
+      "原文的六种数据类型清单属于 ES5 背景。现代 JavaScript 还包含 symbol 和 bigint；不能把该清单当成当前语言的完整类型列表。"
+    ]
+  },
+  "javascript/types/null-undefined-boolean": {
+    "summary": "null 和 undefined 都可表示空缺，但语义与运算结果不同；布尔上下文会按规则把其他类型转换成 true 或 false。",
+    "syntax": "Number(null); // 0\nNumber(undefined); // NaN\nBoolean(''); // false\nBoolean([]); // true",
+    "related": [
+      "javascript/features/conversion",
+      "javascript/operators/boolean",
+      "typescript/types"
+    ]
+  },
+  "javascript/types/number": {
+    "summary": "普通数值采用双精度浮点表示，因此整数精度和小数运算都有边界；NaN、Infinity、进制与数值转换需分别理解。",
+    "syntax": "0.1 + 0.2 === 0.3; // false\nNaN === NaN; // false\nparseInt('10', 2); // 2",
+    "related": [
+      "javascript/stdlib/number",
+      "javascript/stdlib/math",
+      "javascript/operators/arithmetic"
+    ],
+    "notes": [
+      "本章讨论 number 的浮点语义。现代 JavaScript 的 bigint 是独立原始类型，不应套用 number 的全部规则。"
+    ]
+  },
+  "javascript/types/string": {
+    "summary": "字符串是文本值，支持引号、转义和按位置读取字符；长度与索引围绕 UTF-16 代码单元，不能简单等同于可见字符数。",
+    "syntax": "var text = 'hello';\ntext.length; // 5\ntext[0]; // 'h'",
+    "related": [
+      "javascript/stdlib/string",
+      "javascript/stdlib/regexp",
+      "typescript/types"
+    ],
+    "notes": [
+      "Base64 一节保留了浏览器提供的 btoa/atob 作为原文上下文；它们不属于 ECMAScript 字符串标准方法。"
+    ]
+  },
+  "javascript/types/object": {
+    "summary": "对象把属性名映射到值，点运算符和方括号用于读写属性；属性可以持有函数，形成对象的方法。",
+    "syntax": "var person = { name: 'Ada' };\nperson.name; // 'Ada'\nperson['name']; // 'Ada'",
+    "related": [
+      "javascript/stdlib/object",
+      "javascript/stdlib/attributes",
+      "typescript/object"
+    ],
+    "notes": [
+      "with 语句作为旧代码阅读材料保留；严格模式禁止使用，不建议在新代码中采用。"
+    ]
+  },
+  "javascript/types/function": {
+    "summary": "函数既能封装可调用逻辑，也是可以赋值和传递的值；作用域、参数、闭包及调用方式决定其具体行为。",
+    "syntax": "function add(x, y) {\n  return x + y;\n}\nadd(1, 2); // 3",
+    "related": [
+      "javascript/oop/this",
+      "javascript/async/general",
+      "typescript/function"
+    ],
+    "notes": [
+      "eval 与 Function 构造函数保留作语言机制说明；示例不是建议从不可信文本执行代码。"
+    ]
+  },
+  "javascript/types/array": {
+    "summary": "数组是带有顺序索引和 length 的特殊对象；空位、越界访问与类似数组的对象需要和真正的数组区分。",
+    "syntax": "var items = ['a', 'b'];\nitems[0]; // 'a'\nitems.length; // 2",
+    "related": [
+      "javascript/stdlib/array",
+      "typescript/array",
+      "typescript/tuple"
+    ]
+  },
+  "javascript/operators/arithmetic": {
+    "summary": "算术运算符计算数值，但加号还会连接字符串；隐式转换、自增的返回值和余数的符号是常见阅读边界。",
+    "syntax": "1 + 2; // 3\n'1' + 2; // '12'\n5 % 2; // 1",
+    "related": [
+      "javascript/features/conversion",
+      "javascript/types/number",
+      "javascript/operators/priority"
+    ]
+  },
+  "javascript/operators/comparison": {
+    "summary": "比较返回布尔值。严格相等不会为了比较而转换类型，相等运算符则可能先进行转换；对象按引用身份比较。",
+    "syntax": "1 === '1'; // false\n1 == '1'; // true\n({}) === ({}); // false",
+    "related": [
+      "javascript/features/conversion",
+      "javascript/operators/boolean",
+      "javascript/types/object"
+    ]
+  },
+  "javascript/operators/boolean": {
+    "summary": "! 进行布尔取反，&& 和 || 按短路规则返回操作数；三元运算符根据条件选择一个表达式结果。",
+    "syntax": "!0; // true\n'hello' || 'fallback'; // 'hello'\ntrue ? 'yes' : 'no'; // 'yes'",
+    "related": [
+      "javascript/types/null-undefined-boolean",
+      "javascript/operators/comparison",
+      "javascript/operators/priority"
+    ]
+  },
+  "javascript/operators/bit": {
+    "summary": "本章的数值位运算先按 32 位整数处理，再对二进制位进行与、或、异或、取反和移位。",
+    "syntax": "5 & 3; // 1\n5 | 3; // 7\n1 << 2; // 4",
+    "related": [
+      "javascript/types/number",
+      "javascript/operators/arithmetic",
+      "javascript/operators/priority"
+    ],
+    "notes": [
+      "这里的 32 位规则针对 number 操作数；BigInt 位运算并不使用同一套截断规则。"
+    ]
+  },
+  "javascript/operators/priority": {
+    "summary": "void 返回 undefined，逗号表达式返回最后一个表达式的值；运算符优先级决定分组，圆括号可以显式改变分组。",
+    "syntax": "void 0; // undefined\n(1, 2); // 2\n(1 + 2) * 3; // 9",
+    "related": [
+      "javascript/operators/arithmetic",
+      "javascript/operators/boolean",
+      "javascript/operators/comparison"
+    ]
+  },
+  "javascript/features/conversion": {
+    "summary": "Number、String 和 Boolean 可显式转换值；自动转换还会出现在算术、比较与布尔上下文中。",
+    "syntax": "Number('123'); // 123\nString(123); // '123'\nBoolean('false'); // true",
+    "related": [
+      "javascript/operators/comparison",
+      "javascript/operators/arithmetic",
+      "javascript/stdlib/wrapper"
+    ]
+  },
+  "javascript/features/error": {
+    "summary": "throw 抛出异常，try/catch 处理异常，finally 在控制流离开时执行；Error 对象承载异常的信息。",
+    "syntax": "try {\n  throw new Error('Invalid input');\n} catch (error) {\n  error.message;\n}",
+    "related": [
+      "javascript/async/promise",
+      "javascript/features/debugger",
+      "typescript/any"
+    ]
+  },
+  "javascript/features/style": {
+    "summary": "一致的缩进、区块、声明与比较写法有助于避免自动分号插入和控制流误读；风格建议需要和语言硬性规则区分。",
+    "syntax": "if (ready) {\n  start();\n}",
+    "related": [
+      "javascript/basic/grammar",
+      "javascript/oop/strict",
+      "javascript/operators/comparison"
+    ],
+    "notes": [
+      "本章保留原作者的 ES5 时代风格建议；项目已有格式化器、lint 或团队约定时，以该项目约定为准。示例中的 ready/start 表示上下文变量与函数。"
+    ]
+  },
+  "javascript/features/debugger": {
+    "summary": "debugger 语句为调试工具提供断点位置；未启用调试工具时，它不会改变正常执行结果。",
+    "syntax": "var value = 1;\ndebugger;\nvalue += 1;",
+    "related": [
+      "javascript/features/error",
+      "javascript/basic/grammar"
+    ],
+    "notes": [
+      "从原 console 教程中完整保留语言层面的 debugger 一节，控制台 API 与浏览器工具命令未纳入。实际暂停行为还取决于调试器设置。"
+    ]
+  },
+  "javascript/stdlib/object": {
+    "summary": "Object 提供对象转换、属性枚举和原型上的通用方法；静态方法与实例方法的调用位置不同。",
+    "syntax": "var item = { name: 'Ada' };\nObject.keys(item); // ['name']\nitem.hasOwnProperty('name'); // true",
+    "related": [
+      "javascript/types/object",
+      "javascript/stdlib/attributes",
+      "javascript/oop/object"
+    ]
+  },
+  "javascript/stdlib/attributes": {
+    "summary": "属性描述对象控制属性的值、可写性、可枚举性和可配置性，也能通过 getter/setter 定义存取行为。",
+    "syntax": "var item = {};\nObject.defineProperty(item, 'id', {\n  value: 1,\n  writable: false\n});",
+    "related": [
+      "javascript/stdlib/object",
+      "javascript/types/object",
+      "javascript/oop/object"
+    ]
+  },
+  "javascript/stdlib/array": {
+    "summary": "Array 的标准方法提供增删、遍历、转换与归约；阅读时要特别区分修改原数组的方法和返回新数组的方法。",
+    "syntax": "[1, 2, 3].map(function (n) {\n  return n * 2;\n}); // [2, 4, 6]",
+    "related": [
+      "javascript/types/array",
+      "javascript/types/function",
+      "typescript/array"
+    ]
+  },
+  "javascript/stdlib/wrapper": {
+    "summary": "包装对象为原始值提供对象形式和相关方法；原始值与显式 new 出来的包装对象不是同一种值。",
+    "syntax": "typeof 'abc'; // 'string'\ntypeof new String('abc'); // 'object'\n'abc'.length; // 3",
+    "related": [
+      "javascript/stdlib/boolean",
+      "javascript/stdlib/number",
+      "javascript/stdlib/string"
+    ]
+  },
+  "javascript/stdlib/boolean": {
+    "summary": "Boolean(value) 把值转成布尔值，而 new Boolean(value) 创建对象；即使包装 false，这个对象在条件中也为真。",
+    "syntax": "Boolean(false); // false\nBoolean(new Boolean(false)); // true",
+    "related": [
+      "javascript/stdlib/wrapper",
+      "javascript/types/null-undefined-boolean",
+      "javascript/operators/boolean"
+    ]
+  },
+  "javascript/stdlib/number": {
+    "summary": "Number 包含数值常量与格式化方法；toString、toFixed 等方法返回字符串，需要与数值计算区分。",
+    "syntax": "(10).toString(2); // '1010'\n(12.345).toFixed(2); // '12.35'",
+    "related": [
+      "javascript/types/number",
+      "javascript/stdlib/math",
+      "javascript/stdlib/wrapper"
+    ]
+  },
+  "javascript/stdlib/string": {
+    "summary": "String 提供字符读取、查找、截取、大小写转换和分割方法；这些方法不会原地改写原始字符串。",
+    "syntax": "'hello'.slice(1, 4); // 'ell'\n'a,b'.split(','); // ['a', 'b']",
+    "related": [
+      "javascript/types/string",
+      "javascript/stdlib/regexp",
+      "javascript/stdlib/wrapper"
+    ]
+  },
+  "javascript/stdlib/math": {
+    "summary": "Math 通过静态属性和方法提供常量、取整、绝对值、幂、三角函数及随机数等计算能力。",
+    "syntax": "Math.max(1, 5, 2); // 5\nMath.floor(2.8); // 2\nMath.abs(-3); // 3",
+    "related": [
+      "javascript/types/number",
+      "javascript/stdlib/number",
+      "javascript/operators/arithmetic"
+    ]
+  },
+  "javascript/stdlib/date": {
+    "summary": "Date 用时间戳表示时刻，并提供本地时间与 UTC 的读取、设置和格式化方法；月份参数从 0 开始。",
+    "syntax": "var date = new Date('2020-01-01T00:00:00Z');\ndate.toISOString(); // '2020-01-01T00:00:00.000Z'",
+    "related": [
+      "javascript/types/number",
+      "javascript/stdlib/json",
+      "javascript/oop/new"
+    ],
+    "notes": [
+      "非标准日期字符串的解析、当地时间和夏令时依赖运行环境。原文中的历史日期输出不保证在所有时区完全一致。"
+    ]
+  },
+  "javascript/stdlib/regexp": {
+    "summary": "正则表达式用模式描述文本匹配规则；test、exec 以及字符串方法配合修饰符完成检测、提取和替换。",
+    "syntax": "/^a/.test('abc'); // true\n'abc123'.replace(/\\d+/, ''); // 'abc'",
+    "related": [
+      "javascript/types/string",
+      "javascript/stdlib/string",
+      "javascript/types/object"
+    ],
+    "notes": [
+      "正则语法按原教程版本保留，本章不声称覆盖后续 ECMAScript 新增的全部修饰符和模式。"
+    ]
+  },
+  "javascript/stdlib/json": {
+    "summary": "JSON 是文本数据格式；JSON.stringify 序列化，JSON.parse 解析。JSON 的取值和语法限制比 JavaScript 对象字面量严格。",
+    "syntax": "var text = JSON.stringify({ name: 'Ada' });\nJSON.parse(text).name; // 'Ada'",
+    "related": [
+      "javascript/types/object",
+      "javascript/features/error",
+      "config/package-json"
+    ]
+  },
+  "javascript/stdlib/arraybuffer": {
+    "summary": "ArrayBuffer 表示固定长度的二进制缓冲区；byteLength 读取字节长度，slice 复制指定范围。",
+    "syntax": "var buffer = new ArrayBuffer(8);\nbuffer.byteLength; // 8\nbuffer.slice(0, 4).byteLength; // 4",
+    "related": [
+      "javascript/types/array",
+      "javascript/operators/bit",
+      "typescript/es6"
+    ],
+    "notes": [
+      "这里完整保留来源的 ArrayBuffer 一节，排除了同篇的 Blob 与浏览器文件应用。正文覆盖基础用法，不包含后来引入的可调整大小缓冲区特性。",
+      "ArrayBuffer 本身不提供按索引读写字节的接口；访问缓冲区内容通常需要 TypedArray 或 DataView 视图。只有构造时显式提供 maxByteLength 等条件时才涉及可调整大小缓冲区，这与本文 new ArrayBuffer(8) 的基础用法不同。"
+    ],
+    "officialSources": [
+      "https://tc39.es/ecma262/multipage/structured-data.html#sec-arraybuffer-objects"
+    ]
+  },
+  "javascript/oop/new": {
+    "summary": "new 调用构造函数并建立实例；构造函数中的 this 通常指向新对象，原型关系让实例共享行为。",
+    "syntax": "function Person(name) {\n  this.name = name;\n}\nvar person = new Person('Ada');",
+    "related": [
+      "javascript/oop/this",
+      "javascript/oop/prototype",
+      "typescript/class"
+    ]
+  },
+  "javascript/oop/this": {
+    "summary": "普通函数的 this 取决于调用方式；call、apply 和 bind 用于显式指定或绑定调用时的 this。",
+    "syntax": "function getName() { return this.name; }\ngetName.call({ name: 'Ada' }); // 'Ada'",
+    "related": [
+      "javascript/types/function",
+      "javascript/oop/new",
+      "typescript/function"
+    ],
+    "notes": [
+      "本章主要讨论普通函数。箭头函数从定义位置捕获 this，不适用通过 call/apply/bind 重设 this 的规则。"
+    ]
+  },
+  "javascript/oop/prototype": {
+    "summary": "实例沿原型链查找属性，构造函数的 prototype 用于共享实例行为；instanceof 检查相关的原型链关系。",
+    "syntax": "function Person() {}\nPerson.prototype.greet = function () { return 'hello'; };\nnew Person().greet(); // 'hello'",
+    "related": [
+      "javascript/oop/new",
+      "javascript/oop/object",
+      "typescript/class"
+    ],
+    "notes": [
+      "原文末尾的闭包/IIFE 模块模式用于理解早期项目；现代 import/export 模块参见 TypeScript 模块与项目模块解析补充。"
+    ]
+  },
+  "javascript/oop/object": {
+    "summary": "Object 的原型操作和属性检查方法用于创建继承关系、检查对象结构和进行浅拷贝。",
+    "syntax": "var prototype = { greeting: 'hello' };\nvar item = Object.create(prototype);\nObject.getPrototypeOf(item) === prototype; // true",
+    "related": [
+      "javascript/oop/prototype",
+      "javascript/stdlib/object",
+      "javascript/stdlib/attributes"
+    ],
+    "notes": [
+      "__proto__ 作为历史接口保留。阅读和编写原型操作时优先区分 Object.getPrototypeOf/setPrototypeOf 等显式标准方法。"
+    ]
+  },
+  "javascript/oop/strict": {
+    "summary": "严格模式对隐式全局变量、this、重复参数和旧语法施加更严格限制，让部分静默问题变成错误。",
+    "syntax": "'use strict';\nfunction getThis() {\n  return this;\n}\ngetThis(); // undefined",
+    "related": [
+      "javascript/oop/this",
+      "javascript/features/error",
+      "typescript/module"
+    ],
+    "notes": [
+      "本章示例以脚本启用 'use strict' 为背景。ES 模块和 class 内部具有严格模式语义，无需照搬额外指令。"
+    ]
+  },
+  "javascript/async/general": {
+    "summary": "异步代码把后续工作安排到稍后执行；任务队列、事件循环和回调模式帮助解释同步代码与异步结果的顺序。",
+    "syntax": "function task(callback) {\n  callback('done');\n}\n// 回调是一种传递后续行为的方式；此例本身同步执行。",
+    "related": [
+      "javascript/async/promise",
+      "javascript/types/function",
+      "typescript/es6"
+    ],
+    "notes": [
+      "本章的事件循环与计时示例使用宿主环境说明异步。单线程模型是正文的基础描述，不表示所有宿主工作、Worker 或 I/O 都在同一线程执行。",
+      "“任务队列清空，程序就结束执行”是简化模型：浏览器仍可等待后续事件，Node.js 是否退出还取决于活动句柄等条件。回调只是传递函数的方式，本身并不保证异步，耗时的异步回调执行时仍可能阻塞当前线程。原文 jQuery 信号示例依赖相应旧库/插件，不是普通函数天然带有 on/trigger 方法。"
+    ],
+    "officialSources": [
+      "https://html.spec.whatwg.org/multipage/webappapis.html#event-loops"
+    ]
+  },
+  "javascript/async/promise": {
+    "summary": "Promise 表示异步操作的最终完成或失败；then 返回新 Promise，处理回调作为微任务在当前同步执行结束后运行。",
+    "syntax": "Promise.resolve(1)\n  .then(function (value) { return value + 1; })\n  .then(function (value) { return value; });",
+    "related": [
+      "javascript/async/general",
+      "javascript/features/error",
+      "typescript/es6"
+    ],
+    "notes": [
+      "图片加载与定时器是原文的宿主环境示例；Promise 本身是语言标准对象。本文不覆盖所有后来新增的 Promise 静态方法。",
+      "术语修正：fulfilled 与 rejected 合称 settled（已敲定），不是 resolved 的严格同义词。resolve(另一个 Promise) 会采用其最终结果，因此已 resolved 的 Promise 仍可能 pending。拒绝原因也可以是任意值，不一定是 Error。",
+      "new Promise 的 executor 会同步执行；then/catch 的处理回调才通过 Promise 作业排队。当前执行结束后，已经排入的微任务通常先于下一任务运行，但尚未兑现的 Promise 不能保证早于任何定时器；原文“微任务一定早于正常任务”需放回给定示例理解。",
+      "f1().then(f2()) 会立刻调用 f2；只有 f2 返回函数时才会注册该函数。若返回的是非函数，then 会忽略该处理器并向后传递已有结果。原文对此例默认了 f2 返回函数的前提。"
+    ],
+    "officialSources": [
+      "https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise-objects",
+      "https://html.spec.whatwg.org/multipage/webappapis.html#perform-a-microtask-checkpoint"
+    ]
+  },
+  "typescript/intro": {
+    "summary": "TypeScript 在 JavaScript 之上增加静态类型系统，用于开发阶段发现类型使用问题；实际执行仍遵循生成的 JavaScript 行为。",
+    "syntax": "function addOne(n: number): number {\n  return n + 1;\n}",
+    "related": [
+      "typescript/basic",
+      "typescript/types",
+      "javascript/basic/introduction"
+    ]
+  },
+  "typescript/basic": {
+    "summary": "通过类型声明和类型推断描述值的用法；编译器检查类型并生成 JavaScript，类型空间与值空间需要分清。",
+    "syntax": "let message: string = 'hello';\nlet count = 1; // 推断为 number",
+    "related": [
+      "typescript/types",
+      "config/tsc",
+      "config/tsconfig"
+    ],
+    "notes": [
+      "类型标注不会自动验证运行时输入；Node、ts-node、编译器等命令示例按原文保留，本站使用的实际工具版本见验证记录。"
+    ]
+  },
+  "typescript/any": {
+    "summary": "any 放宽类型检查，unknown 要先缩小类型才能安全使用，never 表示不可能出现的值；三者承担不同角色。",
+    "syntax": "let value: unknown = 'hello';\nif (typeof value === 'string') {\n  value.toUpperCase();\n}",
+    "related": [
+      "typescript/types",
+      "typescript/narrowing",
+      "typescript/type-operations"
+    ]
+  },
+  "typescript/types": {
+    "summary": "TypeScript 用原始类型、字面量、联合、交叉与类型别名描述允许的值，并通过兼容性规则判断赋值和调用。",
+    "syntax": "type Id = string | number;\nlet id: Id = 42;",
+    "related": [
+      "typescript/any",
+      "typescript/type-operations",
+      "javascript/types/general"
+    ]
+  },
+  "typescript/array": {
+    "summary": "数组类型描述各元素允许的类型；T[] 与 Array<T> 是常见写法，只读数组在类型检查阶段限制修改操作。",
+    "syntax": "const numbers: number[] = [1, 2, 3];\nconst names: Array<string> = ['Ada'];",
+    "related": [
+      "typescript/tuple",
+      "typescript/generics",
+      "javascript/types/array"
+    ]
+  },
+  "typescript/tuple": {
+    "summary": "元组按位置描述数组成员的类型和数量，适合表达结构固定的数据；可选、剩余成员与只读形式有各自边界。",
+    "syntax": "const entry: [string, number] = ['age', 18];\nentry[0].toUpperCase();",
+    "related": [
+      "typescript/array",
+      "typescript/function",
+      "typescript/assert"
+    ]
+  },
+  "typescript/symbol": {
+    "summary": "symbol 表示 JavaScript 的唯一符号值，unique symbol 能在类型层面标识某一个具体符号。",
+    "syntax": "const key: unique symbol = Symbol();\nconst record = { [key]: 'value' };",
+    "related": [
+      "typescript/types",
+      "typescript/object",
+      "typescript/es6"
+    ]
+  },
+  "typescript/function": {
+    "summary": "函数类型描述参数与返回值，并支持可选参数、rest 参数、重载和构造签名；void 与 never 含义不同。",
+    "syntax": "function greet(name: string): string {\n  return 'Hello, ' + name;\n}",
+    "related": [
+      "javascript/types/function",
+      "typescript/generics",
+      "typescript/any"
+    ]
+  },
+  "typescript/object": {
+    "summary": "对象类型通过属性和方法的结构约束值；可选、只读、索引签名与对象字面量检查影响可赋值关系。",
+    "syntax": "const user: { name: string; age?: number } = {\n  name: 'Ada'\n};",
+    "related": [
+      "typescript/interface",
+      "typescript/types",
+      "javascript/types/object"
+    ]
+  },
+  "typescript/interface": {
+    "summary": "interface 为对象结构命名，可以继承和合并声明；它与 type 在能表达的类型和声明合并行为上存在区别。",
+    "syntax": "interface User {\n  name: string;\n  age?: number;\n}",
+    "related": [
+      "typescript/object",
+      "typescript/class",
+      "typescript/types"
+    ]
+  },
+  "typescript/class": {
+    "summary": "TypeScript 为 JavaScript 类增加属性、方法、继承与访问约束的类型检查，类同时涉及实例类型和运行时构造值。",
+    "syntax": "class User {\n  constructor(public name: string) {}\n}\nconst user = new User('Ada');",
+    "related": [
+      "javascript/oop/new",
+      "javascript/oop/prototype",
+      "typescript/interface"
+    ],
+    "notes": [
+      "TypeScript 的 private/protected 主要是类型检查限制；JavaScript 的 #private 字段有运行时私有语义，两者不能等同。"
+    ]
+  },
+  "typescript/generics": {
+    "summary": "泛型通过类型参数保存输入、输出及成员之间的类型关系，避免为了复用而丢失具体类型信息。",
+    "syntax": "function identity<T>(value: T): T {\n  return value;\n}\nconst result = identity('hello');",
+    "related": [
+      "typescript/function",
+      "typescript/operator",
+      "typescript/utility"
+    ]
+  },
+  "typescript/enum": {
+    "summary": "Enum 为一组相关常量命名，可使用数值或字符串成员；普通枚举同时产生类型和运行时值。",
+    "syntax": "enum Direction {\n  Up,\n  Down\n}\nconst direction: Direction = Direction.Up;",
+    "related": [
+      "typescript/types",
+      "typescript/basic",
+      "typescript/operator"
+    ],
+    "notes": [
+      "枚举不是纯粹的类型标注；普通 enum 通常会生成 JavaScript。const enum 及不同构建工具的处理边界需结合项目配置。"
+    ]
+  },
+  "typescript/assert": {
+    "summary": "类型断言用于告诉编译器你掌握的类型信息，as const 保留更具体的字面量类型；断言本身不执行运行时转换。",
+    "syntax": "const value: unknown = 'hello';\nconst text = value as string;\nconst directions = ['up', 'down'] as const;",
+    "related": [
+      "typescript/any",
+      "typescript/narrowing",
+      "typescript/tuple"
+    ],
+    "notes": [
+      "as 和非空断言 ! 不会验证外部数据；断言函数是否可靠取决于函数体是否真的检查条件。",
+      "原文把普通对象断言为 Array<string> 后读取 .length 描述为“运行时报错”，此处不准确：示例对象没有 length 属性，运行时读取结果是 undefined，本次 Node.js 抽样也证实不会抛异常。类型断言被擦除，不会把对象变成数组；若继续调用不存在的数组方法，则可能产生运行时错误。"
+    ],
+    "officialSources": [
+      "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions"
+    ]
+  },
+  "typescript/narrowing": {
+    "summary": "类型缩小根据 typeof、instanceof、in、判别属性等控制流信息，在某个分支把联合类型收窄为更具体的类型。",
+    "syntax": "function size(value: string | number): number {\n  return typeof value === 'string' ? value.length : value;\n}",
+    "related": [
+      "typescript/any",
+      "typescript/operator",
+      "typescript/types"
+    ],
+    "notes": [
+      "此文件未列入来源 chapters.yml，本站仍完整纳入。原文称 in 不能检查 object 上未声明的属性，属于旧版本边界；TypeScript 4.9 起支持 Unlisted Property Narrowing。原文称 any 必须先缩小才可处理也过于绝对：unknown 要求检查，any 会跳过许多检查。类型缩小不是改变变量的声明类型。"
+    ],
+    "officialSources": [
+      "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+      "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html"
+    ]
+  },
+  "typescript/type-operations": {
+    "summary": "联合、交叉、never 与 unknown 具有可用于推导类型的组合规则；对象结构与重载签名也会影响推导结果。",
+    "syntax": "type Text = never | string; // string\ntype Value = unknown & number; // number",
+    "related": [
+      "typescript/types",
+      "typescript/operator",
+      "typescript/mapping"
+    ],
+    "notes": [
+      "此文件未列入来源 chapters.yml，本站仍完整纳入。部分代码块是类型代数推导（含 ≡、T = 等），用于说明关系，并非可直接编译的独立 TypeScript 文件。末尾“交叉类型”下的模板字符串例子实际展示联合成员的字符串组合。"
+    ]
+  },
+  "typescript/module": {
+    "summary": "模块通过 import/export 建立显式依赖和作用域；import type 区分只参与类型检查的导入与需要运行时保留的值导入。",
+    "syntax": "export type User = { name: string };\n// 另一个文件：\nimport type { User } from './user.js';",
+    "related": [
+      "config/module-resolution",
+      "config/package-json",
+      "typescript/d.ts"
+    ],
+    "notes": [
+      "模块解析章节保留历史 classic/node 描述，现代项目还需阅读 node16/nodenext/bundler 与 package.json 的 type/exports。importsNotUsedAsValues 已在 TypeScript 5.5 移除，现代配置参见 verbatimModuleSyntax。模块识别也受 moduleDetection 等配置影响；不能仅靠有无 export 判断所有项目。"
+    ],
+    "officialSources": [
+      "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
+      "https://www.typescriptlang.org/tsconfig/verbatimModuleSyntax.html",
+      "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html"
+    ]
+  },
+  "typescript/namespace": {
+    "summary": "namespace 把相关声明组织在一个命名空间中，并可通过 export 暴露成员；常见于旧项目及全局声明的阅读。",
+    "syntax": "namespace Utils {\n  export function twice(n: number) { return n * 2; }\n}\nUtils.twice(2);",
+    "related": [
+      "typescript/module",
+      "typescript/declare",
+      "typescript/d.ts"
+    ],
+    "notes": [
+      "现代应用通常使用 ES 模块。namespace 在类型声明和历史项目中仍可见；原文关于推荐方向的说法不表示语法已经被移除。"
+    ]
+  },
+  "typescript/decorator": {
+    "summary": "装饰器在类定义阶段参与修改或包装类及其成员；新装饰器接收被装饰值与上下文，和旧实验语法的调用约定不同。",
+    "syntax": "function logged(value: Function, context: ClassMethodDecoratorContext) {\n  return function (this: unknown, ...args: unknown[]) {\n    return value.apply(this, args);\n  };\n}",
+    "related": [
+      "typescript/decorator-legacy",
+      "typescript/class",
+      "config/tsconfig"
+    ],
+    "notes": [
+      "本章介绍 TypeScript 5.0 起支持的新装饰器方案。原文把 2022 年的提案阶段推进称为“成为标准”，措辞不严谨；不要据此推断所有 JavaScript 引擎都已原生实现。与 experimentalDecorators 旧语法应分开配置和阅读。"
+    ],
+    "officialSources": [
+      "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html"
+    ]
+  },
+  "typescript/decorator-legacy": {
+    "summary": "旧装饰器依赖 experimentalDecorators，支持类、方法、属性、存取器和参数装饰器，签名与新装饰器不兼容。",
+    "syntax": "// tsconfig.json 中启用 experimentalDecorators\nfunction sealed(target: Function) {\n  Object.seal(target);\n  Object.seal(target.prototype);\n}",
+    "related": [
+      "typescript/decorator",
+      "typescript/class",
+      "config/tsconfig"
+    ],
+    "notes": [
+      "旧语法用于阅读现有项目，启用前应确认框架和构建链需要哪一种方案。原文对标准状态和未来淘汰的描述不能当作当前时间表。"
+    ]
+  },
+  "typescript/declare": {
+    "summary": "declare 描述由其他地方提供的值、类型或模块，使编译器知道其形状；声明并不会创建对应的运行时实现。",
+    "syntax": "declare function greet(name: string): string;\n// 实际执行前，运行环境必须真的提供 greet。",
+    "related": [
+      "typescript/d.ts",
+      "typescript/module",
+      "config/npm"
+    ]
+  },
+  "typescript/d.ts": {
+    "summary": ".d.ts 文件集中描述模块或全局环境的类型接口；使用者据此进行类型检查，运行时仍需要相应 JavaScript 实现。",
+    "syntax": "// index.d.ts\nexport declare function greet(name: string): string;",
+    "related": [
+      "typescript/declare",
+      "config/npm",
+      "config/package-json"
+    ]
+  },
+  "typescript/operator": {
+    "summary": "keyof、索引访问、条件类型和 infer 等运算从已有类型构造新类型；satisfies 检查兼容性而保留表达式自身的推断信息。",
+    "syntax": "type User = { name: string; age: number };\ntype UserKey = keyof User; // 'name' | 'age'\ntype UserName = User['name']; // string",
+    "related": [
+      "typescript/generics",
+      "typescript/mapping",
+      "typescript/utility"
+    ]
+  },
+  "typescript/mapping": {
+    "summary": "映射类型遍历一组键，为每个键生成属性类型；映射修饰符和键名重映射可调整可选性、只读性与属性名。",
+    "syntax": "type ReadonlyFields<T> = {\n  readonly [K in keyof T]: T[K];\n};",
+    "related": [
+      "typescript/operator",
+      "typescript/generics",
+      "typescript/utility"
+    ]
+  },
+  "typescript/utility": {
+    "summary": "内置类型工具封装了常用类型变换，例如 Partial、Pick、Record、ReturnType 和 Awaited，可直接用于组合业务类型。",
+    "syntax": "type User = { name: string; age: number };\ntype UserPatch = Partial<User>;\ntype UserName = Pick<User, 'name'>;",
+    "related": [
+      "typescript/mapping",
+      "typescript/operator",
+      "typescript/generics"
+    ]
+  },
+  "typescript/comment": {
+    "summary": "TypeScript 的注释指令可启用、关闭或抑制类型检查；JSDoc 则为 JavaScript 代码提供类型信息。",
+    "syntax": "// @ts-expect-error 这里故意传入错误类型\nconst count: number = 'one';",
+    "related": [
+      "typescript/basic",
+      "config/tsconfig",
+      "config/tsc"
+    ],
+    "notes": [
+      "@ts-expect-error 在下一行不再产生错误时也会报错；@ts-ignore 没有同样的失效提示。抑制检查不等于修复运行时问题。"
+    ]
+  },
+  "typescript/es6": {
+    "summary": "Map、Set、Promise 和可迭代对象通过泛型表达成员或结果类型；async 函数返回 Promise，生成器返回可迭代的迭代器。",
+    "syntax": "const scores = new Map<string, number>();\nscores.set('Ada', 100);\nconst names = new Set<string>(['Ada']);",
+    "related": [
+      "typescript/generics",
+      "typescript/symbol",
+      "javascript/async/promise"
+    ],
+    "notes": [
+      "此文件未列入来源 chapters.yml，本站仍完整纳入。原稿 Set 和 Promise 两节只有标题，本站依据官方类型文档独立补齐，补充内容已明确标注；迭代器接口代码是历史简化形状，当前 lib 定义还包含更多类型参数和联合分支。"
+    ],
+    "officialSources": [
+      "https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html",
+      "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+      "https://www.typescriptlang.org/docs/handbook/2/objects.html#the-array-type",
+      "https://tc39.es/ecma262/multipage/keyed-collections.html#sec-set-objects",
+      "https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise-objects"
+    ],
+    "headingSupplements": {
+      "`Set<T>`": "> **本站补充**（原稿此节仅有标题）：`Set<T>` 描述元素类型为 `T` 的集合。集合使用 `add` 添加值，用 `has` 判断值是否存在，重复添加相同值不会增加成员数量。类型参数约束传入方法的值，但不会在运行时执行额外的类型验证。\n\n```typescript\nconst names = new Set<string>();\nnames.add('Ada');\nnames.add('Ada');\nnames.size; // 1\nnames.has('Ada'); // true\n```\n\n集合的对象值按引用身份区分；两个内容相同但独立创建的对象仍是两个元素。相应运行环境需要支持 `Set`，只改变 TypeScript 的 `lib` 选项并不会安装运行时实现。",
+      "`Promise<T>`": "> **本站补充**（原稿此节仅有标题）：`Promise<T>` 的类型参数描述成功兑现后的值；它不描述拒绝原因的类型，也不会把同步值自动变成异步操作。\n\n```typescript\nconst result: Promise<number> = Promise.resolve(42);\nresult.then(value => value.toFixed(0));\n\nasync function answer(): Promise<number> {\n  return 42;\n}\n```\n\n`then` 回调里的 `value` 推断为 `number`。`await` 取得成功结果；拒绝需要通过 `try/catch` 或 `catch` 处理。类型检查和 Promise 的运行行为是两层机制，相关运行语义参见 [Promise 对象](/javascript/async/promise/)。"
+    }
+  },
+  "config/tsconfig": {
+    "summary": "tsconfig.json 定义 TypeScript 项目的文件范围和编译选项；extends 用于复用配置，compilerOptions 控制检查、解析与输出。",
+    "syntax": "{\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"noEmit\": true\n  },\n  \"include\": [\"src\"]\n}",
+    "language": "json",
+    "related": [
+      "config/tsc",
+      "config/module-resolution",
+      "config/package-json"
+    ],
+    "notes": [
+      "正文配置说明按来源版本保留，并非当前所有选项的完整参考。TypeScript 4.1 起 paths 不再要求同时设置 baseUrl；paths 也不会重写生成代码的导入路径。exclude 只影响 include 的文件发现，不能阻止被 import 的文件进入程序。现代模块选项请结合本站“模块解析与运行环境”。",
+      "原文 target 默认 es3 等描述具有历史版本背景，ES3 输出支持已在 TypeScript 5.5 移除。默认值与可用选项应以所用编译器版本的 tsc --help --all 和官方 TSConfig 文档为准，不要直接复制旧版配置全集。"
+    ],
+    "officialSources": [
+      "https://www.typescriptlang.org/tsconfig/",
+      "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-1.html",
+      "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html"
+    ]
+  },
+  "config/tsc": {
+    "summary": "tsc 进行类型检查并按配置生成代码或声明；可以通过 --project 指定配置，也可以使用 --noEmit 只检查不输出。",
+    "syntax": "npx tsc --project tsconfig.json --noEmit",
+    "language": "bash",
+    "related": [
+      "config/tsconfig",
+      "typescript/basic",
+      "typescript/d.ts"
+    ],
+    "notes": [
+      "关键修正：命令行显式传入输入文件（如 tsc index.ts）时，会忽略 tsconfig.json，而不仅是忽略 files 属性；使用 tsc -p tsconfig.json 读取项目配置。原文的已移除/过时选项不是现代版本推荐配置，实际支持以当前 tsc --help 为准。"
+    ],
+    "officialSources": [
+      "https://www.typescriptlang.org/docs/handbook/compiler-options.html"
+    ]
+  },
+  "config/npm": {
+    "summary": "TypeScript 使用 npm 包时，需要找到包自带或 @types 提供的声明；package.json 的 types 字段可指向声明入口。",
+    "syntax": "{\n  \"name\": \"example-library\",\n  \"main\": \"dist/index.js\",\n  \"types\": \"dist/index.d.ts\"\n}",
+    "language": "json",
+    "related": [
+      "config/package-json",
+      "config/module-resolution",
+      "typescript/d.ts"
+    ],
+    "notes": [
+      "此文件未列入来源 chapters.yml，本站仍完整纳入。原文是传统发布流程示例：不能把 Node.js 等同于 CommonJS、浏览器等同于 ESNext；Node.js 也支持 ESM。Node.js 8 的提及是历史最低版本示例，不是当前支持建议。拿不到声明不等于完全无法开发，也可补充声明或显式接受宽松检查的代价。"
+    ],
+    "officialSources": [
+      "https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html",
+      "https://nodejs.org/api/packages.html"
+    ]
+  }
+}

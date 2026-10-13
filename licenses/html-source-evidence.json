@@ -1,0 +1,67 @@
+{
+  "repositoryDeclaration": {
+    "file": "content/upstream/html/package.json",
+    "field": "license",
+    "value": "CC-BY-SA-4.0"
+  },
+  "absenceOfLicenseFile": "Fixed Git tree has no standalone LICENSE file; package.json and online notices provide explicit licenses.",
+  "adoptedContentLicense": "CC-BY-SA-4.0",
+  "onlineDeclaration": "CC-BY-SA-3.0",
+  "note": "The declarations differ. This project uses the fixed repository declaration; it does not claim the two are identical.",
+  "evidence": [
+    {
+      "kind": "tutorial",
+      "url": "https://wangdoc.com/html/",
+      "retrievedAt": "2026-10-13T07:28:20.7594952Z",
+      "httpStatus": 200,
+      "sha256": "de5506a1824257ddce24a27ddba1838a607856802950e006b72e17dd8762b9fa",
+      "excerpts": [
+        "<p>本教程采用<a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\" target=\"_blank\">知识共享 署名-相同方式共享 3.0协议</a>。</p>"
+      ]
+    },
+    {
+      "kind": "imageChapter",
+      "url": "https://wangdoc.com/html/image.html",
+      "retrievedAt": "2026-10-13T07:28:21.3041220Z",
+      "httpStatus": 200,
+      "sha256": "3041b026ced38c9b7c108e410bab2569535aa89ad6b0964270ec78ba8276e70f",
+      "excerpts": [
+        "<p>本教程采用<a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\" target=\"_blank\">知识共享 署名-相同方式共享 3.0协议</a>。</p>"
+      ]
+    },
+    {
+      "kind": "mdn",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images",
+      "retrievedAt": "2026-10-13T07:28:21.8109289Z",
+      "httpStatus": 200,
+      "sha256": "26d003b33069337020acf4a535d1510dbc5384c56d49b148213fc52762bc486b",
+      "excerpts": [
+        "<img src=\"/en-US/docs/Web/HTML/Guides/Responsive_images/picture-element-wide.png\" alt=\"Our example site as viewed on a wide screen - here the first image works OK, as it is big enough to see the detail in the center.\" width=\"700\" height=\"554\" loading=\"lazy\">",
+        "<img src=\"/en-US/docs/Web/HTML/Guides/Responsive_images/picture-element-wide.png\" alt=\"Our example site as viewed on a wide screen - here the first image works OK, as it is big enough to see the detail in the center.\" width=\"700\" height=\"554\" loading=\"lazy\">",
+        "<img src=\"/en-US/docs/Web/HTML/Guides/Responsive_images/picture-element-narrow.png\" alt=\"Our example site as viewed on a narrow screen with the picture element used to switch the first image to a portrait close up of the detail, making it a lot more useful on a narrow screen\" width=\"320\" height=\"710\" loading=\"lazy\">"
+      ]
+    },
+    {
+      "kind": "mdnLicense",
+      "url": "https://raw.githubusercontent.com/mdn/content/main/files/en-us/mdn/writing_guidelines/attrib_copyright_license/index.md",
+      "retrievedAt": "2026-10-13T07:28:22.2527209Z",
+      "httpStatus": 200,
+      "sha256": "a455e3999f62918f508555d42ddb55b494140d85d8275fd1ddf4895b25e96eba",
+      "excerpts": [
+        "### Documentation\n\n> [!NOTE]\n> The content on MDN Web Docs has been prepared with the contributions of authors from both inside and outside Mozilla. Unless otherwise indicated, the content is available under the terms of the [Creative Commons Attribution-ShareAlike license](https://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA), v2.5 or any later version.\n\nYour reuse of the content here is published under the same license as the original content – CC-BY-SA v2.5 or any later version.\nWhen reusing the content on MDN Web Docs, you need to ensure that [attribution is given](https://creativecommons.org/licenses/by/2.5/deed.en#ref-appropriate-credit) to the material as well as to \"Mozilla Contributors\".\nGood attribution is the **title** of the document, with a hyperlink (online) or URL (in print) to the specific page of the content being sourced, and any modifications you've made briefly described.\nFor example, to provide attribution for this page, you can write:\n\n> [\"Attributions and copyright licensing\"](/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license) by Mozilla Contributors, licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).\n\nYou may also want to link \"Mozilla Contributors\" to a `contributors.txt` file linked in the page footer you're referencing for a list of authors, if reasonable.\nSee [Recommended practices for attribution](https://wiki.creativecommons.org/wiki/Recommended_practices_for_attribution) for more details.\n\n"
+      ]
+    },
+    {
+      "kind": "authorBlog",
+      "url": "https://www.ruanyifeng.com/blog/2019/06/responsive-images.html",
+      "retrievedAt": "2026-10-13T07:28:22.8235543Z",
+      "httpStatus": 200,
+      "sha256": "a4568aa34ae1295413288395ef1382c389f57fbab0c1b010bb37e4259f37c554",
+      "excerpts": [
+        "<p><img src=\"https://cdn.beekka.com/blogimg/asset/201906/bg2019061002.jpg\" alt=\"\" title=\"\" /></p>",
+        "<p><img src=\"https://cdn.beekka.com/blogimg/asset/201906/bg2019061003.jpg\" alt=\"\" title=\"\" /></p>",
+        "<li>版权声明：自由转载-非商用-非衍生-保持署名（<a href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh\">创意共享3.0许可证</a>）</li>"
+      ]
+    }
+  ]
+}

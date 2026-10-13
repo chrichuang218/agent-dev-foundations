@@ -1,0 +1,34 @@
+{
+  "name": "agent-dev-foundations",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "content:import": "node scripts/import-content.mjs",
+    "content:check": "node scripts/check-content.mjs",
+    "site:check": "node scripts/check-site.mjs",
+    "examples:check": "node scripts/check-examples.mjs",
+    "search:check": "node scripts/check-search.mjs",
+    "http:check": "node scripts/check-http.mjs",
+    "verify": "npm run content:check && npm run check && npm run build && npm run site:check && npm run search:check && npm run examples:check"
+  },
+  "dependencies": {
+    "astro": "7.3.8",
+    "markdown-it": "15.0.2",
+    "shiki": "4.5.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@types/node": "24.19.2",
+    "cheerio": "1.2.0",
+    "typescript": "6.0.3"
+  }
+}

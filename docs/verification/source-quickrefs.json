@@ -1,0 +1,209 @@
+{
+  "checkedAt": "2026-10-13",
+  "runtime": {
+    "node": "v24.15.0",
+    "v8": "13.6.233.17-node.48",
+    "platform": "win32"
+  },
+  "method": "Each JavaScript quick-reference string was passed to new node:vm.Script(code). No snippet was executed.",
+  "syntaxParsed": 38,
+  "relatedIdsChecked": 68,
+  "relatedIdUniverse": 71,
+  "limitations": [
+    "No runtime execution of these quick-reference snippets",
+    "No claim that all original JavaScript or TypeScript examples compile or run",
+    "TypeScript quick references were not included in this JavaScript syntax probe"
+  ],
+  "results": [
+    {
+      "id": "javascript/basic/introduction",
+      "sha256": "ec35351560582b83131053612e8534eaf1d3ae764e1a30ae3ed2c4367c693dbf",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/basic/history",
+      "sha256": "caddc2cdf2e3fd266ec69f382fcce9cdfbd48f3528c68d6bd9d6bc9ee10556d6",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/basic/grammar",
+      "sha256": "8f2f9e7af7078e9d4670c67086bed8b28104608dccf78b39c9df53d923a528d5",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/types/general",
+      "sha256": "cc3e82e2eaf23af44a187d4d58fe400adec80233d401168433dc4356bd6815ee",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/types/null-undefined-boolean",
+      "sha256": "e3d18c73236b6ff752e52e12d5f4267c9d96d5f33d691999ac80faa1ffd87aad",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/types/number",
+      "sha256": "9246f4abfe69a0fe0bbf5a2f36b8bf863d0cd1c18a451f7522782f9a528d34d5",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/types/string",
+      "sha256": "4507e96e297285dfecc1b4ce57ffc860c77ec87cd1ae77aa5d1d1bfeead44522",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/types/object",
+      "sha256": "48dc0e9f20c11b933d1aa68322fd3635c50b17fa3477fcb33d1ba6d6c9a375b7",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/types/function",
+      "sha256": "8f606a2e19aa1052a1eb31fd8c73fb1660f12de46f6bcba7cf432a7d4182afb1",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/types/array",
+      "sha256": "7ce38be4e2ab8ddcd906c3fbde5fb5019ec7ddefac649f4f53e3f236f813c193",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/operators/arithmetic",
+      "sha256": "5deac67a05584954b2f1fe19be6f8b41c4319f8691f84c693505e3b475bb2095",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/operators/comparison",
+      "sha256": "b6d0f292ecde8ee78f1ef8228f5bc09bb8d9cbfe3291ccf7133fc7e66ab97646",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/operators/boolean",
+      "sha256": "2dd7df1f93d3011b847e2c4b225762da8c3cec1bc5093c607717925e0a8d268d",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/operators/bit",
+      "sha256": "f966f27e00acac9639967c1040e852664aeac99e3b5fb4632c3e53ffcffee489",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/operators/priority",
+      "sha256": "f50574242f6a705af1868825f33d23d0dd0c2091afb495d78688712b57d8592d",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/features/conversion",
+      "sha256": "6d4073d2d6b831e7caf24c31faef7395416437dd2369906b925c808fbc3f983e",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/features/error",
+      "sha256": "4c3b958dc59516bc29371a5fd09c5b54639951121e0b2623181685fae48ae46b",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/features/style",
+      "sha256": "8b1a803763c63b3dad5e99a98ee14b48e886ffe80aad6d5bd31989583961f448",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/features/debugger",
+      "sha256": "4e5fa78cde9dd732b9e53f128c4146f74c577c1331054e2913e01765ff0e4177",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/object",
+      "sha256": "39c7a20f20b5f4ffb66886596f1c24ca0cac491e14d6ceca276205323fa71758",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/attributes",
+      "sha256": "0a3f68ec1dfd293e14acc43955ffc4c9eb15b3c201945d03dd2ba81bd70482fd",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/array",
+      "sha256": "7b1ca31887e64e644e1a0ce7afbb426c82682cb4e360a59a1563d845bcd7c237",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/wrapper",
+      "sha256": "2175a759f5a45f326f9672c9f808e49426c62d88bf332348bf041ebc48db356e",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/boolean",
+      "sha256": "2dc865bd7902df1b93ee0f3afeeb4b4c34673406a7afa5243a2a2025a7f3ceb7",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/number",
+      "sha256": "31cccb623a096d67441af938c63db93a48a96b2f4d70be5de3ab55237eaa7766",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/string",
+      "sha256": "57e9d7cc065bc7e6ee1df3f56527058e54c489c0cd633c51133d370f0e99bb1d",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/math",
+      "sha256": "6429a846851eb122473b00ea46f3809eed86017e9f4ab7f4a5e57703a771a3e7",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/date",
+      "sha256": "d2164895a1b602b35f2887150b0058f00ce6bde9383f7ce106fa5d86de225a9f",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/regexp",
+      "sha256": "b5fea6b8fe0b52de5d33718e0b8e65b7aee334dd4acb57652d0b268ed507557d",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/json",
+      "sha256": "22b4c1c68fdd2dd358adf772f8dc3b6410f17cabfc676768646d35f0310ff9a2",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/stdlib/arraybuffer",
+      "sha256": "534255dec12833b7c7473855a06d8887e9d38b4ccc3af9872b85f74f6b26a439",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/oop/new",
+      "sha256": "43b9b7e005efbd16fa98f4f4125096abda68cbb64953b57bb9b3a578b7b1364f",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/oop/this",
+      "sha256": "c75f79483343f36fe1d22b460d629d75a60b6cb55e7625b7a7eff9fadb012101",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/oop/prototype",
+      "sha256": "6b65b888f3dcd84c2ca15824142d05648e7bb7b4af495d97500035f40f504755",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/oop/object",
+      "sha256": "6a5f5133fc34d7117c87e3b48f424d05b219e9170942bdd0de88c7cad2258d9a",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/oop/strict",
+      "sha256": "4aef8350f6bf47a88bd24e84514b4d0fa2825fc18ba0eb99bc75c998adc7237b",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/async/general",
+      "sha256": "4f56cb85bd480247e3ff02fe1ea53babe3ddb1531d5da2fb05d6b4fc4af4d105",
+      "status": "syntax-parsed"
+    },
+    {
+      "id": "javascript/async/promise",
+      "sha256": "f5ec24f3e204417bb396f0456d5635af18e08ce98d2ef0ba65db033e3700e80e",
+      "status": "syntax-parsed"
+    }
+  ]
+}

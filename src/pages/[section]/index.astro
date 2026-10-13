@@ -1,0 +1,25 @@
+---
+import { sitePath } from '../../lib/site';
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import { navigation, articles, type Section } from '../../lib/content';
+import { chapterLabel } from '../../lib/navigation';
+export function getStaticPaths() {
+  return navigation.map(section => ({params: {section: section.id}, props: {section}}));
+}
+const { section } = Astro.props;
+const groupId = (label: string, index: number) => label === '项目配置' ? 'project-config' : `group-${index}`;
+const headings = section.groups.map((group, index) => ({depth: 2, slug: groupId(group.label, index), text: group.label}));
+const sectionArticles = articles.filter(article => article.section === section.id);
+---
+<GuideLayout title={section.label} description={section.description} section={section.id as Section} currentPath={section.href} navigation={navigation} headings={headings}>
+  <h1>{section.label}</h1>
+  <p>{section.description}</p>
+  <div class="chapter-directory">{section.groups.map((group, index) => <section class="directory-group" id={groupId(group.label, index)}>
+    <h2>{group.label}</h2>
+    <ul class="directory-list">{group.items.map(item => {
+      const article = sectionArticles.find(article => article.path === item.href)!;
+      const number = sectionArticles.indexOf(article) + 1;
+      return <li><a href={sitePath(item.href)}>{number}. {chapterLabel(item.title)}</a></li>;
+    })}</ul>
+  </section>)}</div>
+</GuideLayout>

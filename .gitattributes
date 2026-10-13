@@ -1,0 +1,6 @@
+* text=auto eol=lf
+# Locked provenance uses byte hashes, so checkout must not normalize snapshots.
+content/upstream/** -text
+docs/reference/** -text
+*.jpg -text
+*.png -text

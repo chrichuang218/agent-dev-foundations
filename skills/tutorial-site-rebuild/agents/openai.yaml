@@ -1,0 +1,4 @@
+interface:
+  display_name: "教程站复刻"
+  short_description: "配合 website-rebuild 完成教程站视觉、交互与完整内容迁移"
+  default_prompt: "使用 $tutorial-site-rebuild 配合 $website-rebuild，按指定参考站的真实布局和阅读交互建立完整教程站，核对全部章节并完成浏览器验证。"

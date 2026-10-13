@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>How Claude Code Works</title>
+  <meta name="description" content="Claude Code 源码架构深度解析">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/claudecode-color.png">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/claudecode-color.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <style>
+    :root {
+      --base-font-size: 15px;
+      --theme-color: #7c5cfc;
+      --sidebar-width: 260px;
+      --sidebar-nav-link-color--active: #7c5cfc;
+      --sidebar-nav-link-border-color--active: #7c5cfc;
+      --code-theme-background: #f6f8fa;
+      --code-inline-background: #f0f0f0;
+    }
+    /* Dark mode — full docsify-themeable variable override */
+    [data-theme="dark"] {
+      /* Base */
+      --base-background-color: #1a1a2e;
+      --base-color: #d4d4d8;
+      --theme-color: #9d84fc;
+
+      /* Headings */
+      --heading-color: #e8e8ec;
+      --heading-h1-color: #f0f0f4;
+      --heading-h1-border-color: #9d84fc;
+      --heading-h2-color: #e0e0e8;
+      --heading-h2-border-color: #333355;
+
+      /* Links */
+      --link-color: #a78bfa;
+      --link-color--hover: #c4b5fd;
+
+      /* Sidebar */
+      --sidebar-background: #141428;
+      --sidebar-border-color: #2a2a4a;
+      --sidebar-name-color: #e0e0e8;
+      --sidebar-nav-link-color: #a0a0b8;
+      --sidebar-nav-link-color--active: #9d84fc;
+      --sidebar-nav-link-color--hover: #c4b5fd;
+      --sidebar-nav-link-background--active: rgba(157, 132, 252, 0.08);
+      --sidebar-nav-link-background--hover: rgba(157, 132, 252, 0.05);
+      --sidebar-nav-link-border-color--active: #9d84fc;
+      --sidebar-nav-strong-color: #c0c0d0;
+      --sidebar-toggle-icon-color: #a0a0b8;
+      --sidebar-toggle-background: #141428;
+
+      /* Code */
+      --code-theme-background: #12122a;
+      --code-theme-text: #d4d4d8;
+      --code-theme-keyword: #c792ea;
+      --code-theme-function: #82aaff;
+      --code-theme-variable: #f78c6c;
+      --code-theme-operator: #89ddff;
+      --code-theme-comment: #676e95;
+      --code-theme-punctuation: #89ddff;
+      --code-theme-selector: #c3e88d;
+      --code-theme-tag: #f07178;
+      --code-theme-selection: rgba(113, 124, 180, 0.2);
+      --code-inline-background: #262640;
+      --code-inline-color: #c792ea;
+
+      /* Blockquote */
+      --blockquote-background: rgba(157, 132, 252, 0.05);
+      --blockquote-border-color: #9d84fc;
+      --blockquote-color: #a0a0b8;
+
+      /* Table */
+      --table-head-background: #1e1e38;
+      --table-head-border-color: #333355;
+      --table-body-border-color: #2a2a4a;
+      --table-cell-border-color: #2a2a4a;
+      --table-row-even-background: #1a1a32;
+      --table-row-odd-background: transparent;
+
+      /* Search */
+      --search-background: #141428;
+      --search-input-background-color: #1e1e38;
+      --search-input-background-color--focus: #262640;
+      --search-input-border-color: #333355;
+      --search-input-color: #d4d4d8;
+      --search-input-placeholder-color: #666680;
+      --search-result-heading-color: #e0e0e8;
+      --search-result-item-color: #a0a0b8;
+      --search-result-item-border-color: #2a2a4a;
+      --search-result-keyword-background: rgba(157, 132, 252, 0.2);
+      --search-result-keyword-color: #c4b5fd;
+
+      /* Notice / tip boxes */
+      --notice-background: rgba(157, 132, 252, 0.06);
+      --notice-border-color: #9d84fc;
+      --notice-color: #c0c0d0;
+      --notice-tip-background: rgba(157, 132, 252, 0.06);
+      --notice-tip-border-color: #9d84fc;
+      --notice-tip-color: #c0c0d0;
+      --notice-important-background: rgba(255, 100, 100, 0.06);
+      --notice-important-border-color: #ff6b6b;
+      --notice-important-color: #ffaaaa;
+
+      /* Copy code button */
+      --copycode-background: #333355;
+      --copycode-color: #a0a0b8;
+
+      /* HR */
+      --hr-border: 1px solid #2a2a4a;
+    }
+    /* Dark mode — elements not covered by CSS variables */
+    [data-theme="dark"] .markdown-section h1 { border-bottom-color: #9d84fc; }
+    [data-theme="dark"] .markdown-section img { opacity: 0.9; }
+    [data-theme="dark"] .docsify-pagination-container { border-top-color: #2a2a4a; }
+    [data-theme="dark"] .pagination-item-label { color: #666680; }
+    [data-theme="dark"] .pagination-item-title { color: #a78bfa; }
+    [data-theme="dark"] .lang-switch-btn { background: #1e1e38; border-color: #9d84fc; color: #9d84fc; }
+    [data-theme="dark"] .lang-switch-btn:hover { background: #9d84fc; color: #fff; }
+    [data-theme="dark"] .dark-toggle-btn { background: #1e1e38; border-color: #9d84fc; color: #9d84fc; }
+    [data-theme="dark"] .dark-toggle-btn:hover { background: #9d84fc; color: #fff; }
+    [data-theme="dark"] .back-to-top { background: #1e1e38; border-color: #9d84fc; color: #9d84fc; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    [data-theme="dark"] .back-to-top:hover { background: #9d84fc; color: #fff; }
+
+    .markdown-section h1 { border-bottom: 2px solid #7c5cfc; padding-bottom: 0.3em; }
+    .markdown-section table { display: table; width: 100%; }
+    .cover-main { max-width: 600px; }
+    .cover-main blockquote { font-size: 1em; color: #666; }
+
+    /* Reading progress bar */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #7c5cfc, #a78bfa);
+      z-index: 10000;
+      transition: width 0.1s linear;
+    }
+    [data-theme="dark"] .reading-progress {
+      background: linear-gradient(90deg, #9d84fc, #c4b5fd);
+    }
+
+    /* Top-right button group */
+    .top-btn-group {
+      position: fixed;
+      top: 12px;
+      right: 100px;
+      z-index: 999;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    /* Language switcher button */
+    .lang-switch-btn {
+      padding: 6px 16px;
+      border: 1.5px solid #7c5cfc;
+      border-radius: 20px;
+      background: #fff;
+      color: #7c5cfc;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lang-switch-btn:hover {
+      background: #7c5cfc;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 12px rgba(124, 92, 252, 0.3);
+    }
+    .lang-switch-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 4px rgba(124, 92, 252, 0.2);
+    }
+    .lang-switch-btn::before {
+      content: '\1F310';
+      font-size: 14px;
+    }
+
+    /* Dark mode toggle button */
+    .dark-toggle-btn {
+      width: 34px;
+      height: 34px;
+      border: 1.5px solid #7c5cfc;
+      border-radius: 50%;
+      background: #fff;
+      color: #7c5cfc;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      line-height: 1;
+    }
+    .dark-toggle-btn:hover {
+      background: #7c5cfc;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 12px rgba(124, 92, 252, 0.3);
+    }
+    .dark-toggle-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid #7c5cfc;
+      border-radius: 50%;
+      background: #fff;
+      color: #7c5cfc;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      background: #7c5cfc;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(124, 92, 252, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <!-- Reading progress bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'How Claude Code Works',
+      repo: 'https://github.com/Windy3f3f3f3f/how-claude-code-works',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      search: {
+        placeholder: '搜索文档...',
+        noData: '没有找到结果',
+        depth: 3,
+        pathNamespaces: ['/', '/en'],
+      },
+      coverpage: false,
+      alias: {
+        '/en/(.*)': '/en/$1',
+        '/en/_sidebar.md': '/en/_sidebar.md',
+      },
+      pagination: {
+        previousText: '上一篇',
+        nextText: '下一篇',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      markdown: {
+        renderer: {
+          code(code, lang) {
+            if (lang === 'mermaid') {
+              return '<div class="mermaid">' + code + '</div>';
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      },
+    }
+  </script>
+  <!-- Docsify core -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- Mermaid -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: false, theme: 'default' });
+
+    // ==========================================
+    // Custom plugins
+    // ==========================================
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat([
+      function(hook) {
+
+        // --- Language switcher (context-aware) ---
+        hook.doneEach(function() {
+          var group = document.getElementById('top-btn-group');
+          if (!group) {
+            group = document.createElement('div');
+            group.id = 'top-btn-group';
+            group.className = 'top-btn-group';
+            document.body.appendChild(group);
+          }
+
+          // Language button
+          var oldLang = document.getElementById('lang-switch');
+          if (oldLang) oldLang.remove();
+
+          var hash = location.hash || '#/';
+          var path = hash.slice(1);
+          var isEn = path.startsWith('/en/') || path === '/en';
+          var targetPath, label;
+
+          if (isEn) {
+            label = '中文';
+            targetPath = path.replace(/^\/en\/?/, '/') || '/';
+          } else {
+            label = 'English';
+            targetPath = (path === '/' || path === '') ? '/en/' : '/en' + path;
+          }
+
+          var btn = document.createElement('a');
+          btn.id = 'lang-switch';
+          btn.className = 'lang-switch-btn';
+          btn.href = '#' + targetPath;
+          btn.textContent = label;
+          group.appendChild(btn);
+
+          // Dark mode button (only create once)
+          if (!document.getElementById('dark-toggle')) {
+            var darkBtn = document.createElement('button');
+            darkBtn.id = 'dark-toggle';
+            darkBtn.className = 'dark-toggle-btn';
+            darkBtn.title = 'Toggle dark mode';
+            var isDark = localStorage.getItem('theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            darkBtn.textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19';
+            darkBtn.addEventListener('click', function() {
+              var current = document.documentElement.getAttribute('data-theme');
+              var next = current === 'dark' ? 'light' : 'dark';
+              document.documentElement.setAttribute('data-theme', next);
+              localStorage.setItem('theme', next);
+              darkBtn.textContent = next === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
+              // Update mermaid theme
+              mermaid.initialize({ startOnLoad: false, theme: next === 'dark' ? 'dark' : 'default' });
+            });
+            group.appendChild(darkBtn);
+          }
+
+          // --- Search placeholder language adaptation ---
+          setTimeout(function() {
+            var searchInput = document.querySelector('.search input[type="search"]');
+            if (searchInput) {
+              searchInput.placeholder = isEn ? 'Search...' : '搜索文档...';
+            }
+          }, 100);
+
+          // --- Pagination text language adaptation ---
+          if (isEn) {
+            var prevLinks = document.querySelectorAll('.pagination-item--previous .pagination-item-label span');
+            var nextLinks = document.querySelectorAll('.pagination-item--next .pagination-item-label span');
+            prevLinks.forEach(function(el) { if (el.textContent === '上一篇') el.textContent = 'Previous'; });
+            nextLinks.forEach(function(el) { if (el.textContent === '下一篇') el.textContent = 'Next'; });
+          }
+        });
+
+        // --- Mermaid rendering ---
+        hook.doneEach(function() {
+          var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+          document.querySelectorAll('.mermaid').forEach(function(el) {
+            if (el.getAttribute('data-processed')) return;
+            var code = el.textContent;
+            var id = 'mermaid-' + Math.random().toString(36).substr(2, 9);
+            try {
+              mermaid.render(id, code).then(function(result) {
+                el.innerHTML = result.svg;
+                el.setAttribute('data-processed', 'true');
+              });
+            } catch (e) {
+              console.warn('Mermaid render error:', e);
+            }
+          });
+        });
+      }
+    ]);
+
+    // --- Back to top button ---
+    (function() {
+      var btn = document.createElement('button');
+      btn.className = 'back-to-top';
+      btn.title = 'Back to top';
+      btn.innerHTML = '&#8593;';
+      btn.addEventListener('click', function() {
+        var main = document.querySelector('.markdown-section');
+        if (main) main.scrollIntoView({ behavior: 'smooth' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      document.body.appendChild(btn);
+
+      // Docsify uses the main content area for scrolling
+      function getScrollContainer() {
+        return document.querySelector('main.content') || document.querySelector('.content') || window;
+      }
+
+      var ticking = false;
+      function onScroll() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var scrollTop, scrollHeight, clientHeight;
+            var container = getScrollContainer();
+            if (container === window) {
+              scrollTop = window.scrollY;
+              scrollHeight = document.documentElement.scrollHeight;
+              clientHeight = window.innerHeight;
+            } else {
+              scrollTop = container.scrollTop;
+              scrollHeight = container.scrollHeight;
+              clientHeight = container.clientHeight;
+            }
+
+            // Back to top visibility
+            btn.classList.toggle('visible', scrollTop > 300);
+
+            // Reading progress
+            var progress = scrollHeight > clientHeight
+              ? (scrollTop / (scrollHeight - clientHeight)) * 100
+              : 0;
+            var bar = document.getElementById('reading-progress');
+            if (bar) bar.style.width = Math.min(progress, 100) + '%';
+
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      // Attach scroll listener to the right container
+      function attachScroll() {
+        var container = getScrollContainer();
+        (container === window ? window : container).addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+
+      // Re-attach after Docsify renders
+      if (window.Docsify) {
+        attachScroll();
+      } else {
+        window.addEventListener('DOMContentLoaded', function() {
+          setTimeout(attachScroll, 500);
+        });
+      }
+      // Also listen on window scroll as fallback
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // --- Apply saved theme on load ---
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  <!-- Code highlight -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+</body>
+</html>

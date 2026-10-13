@@ -1,0 +1,97 @@
+[
+  {
+    "id": "config/package-json",
+    "title": "读懂 package.json",
+    "section": "typescript",
+    "group": "项目配置",
+    "file": "content/local/config/package-json.md",
+    "summary": "package.json 描述项目脚本、依赖、运行条件和包入口。先追踪 scripts，再检查相关配置与入口文件。",
+    "syntax": {
+      "lang": "json",
+      "code": "{\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"check\": \"tsc --noEmit\"\n  }\n}"
+    },
+    "related": [
+      "config/dependencies",
+      "config/module-resolution",
+      "config/npm",
+      "config/tsconfig"
+    ],
+    "sources": [
+      {
+        "title": "npm package.json",
+        "url": "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/"
+      },
+      {
+        "title": "npm run",
+        "url": "https://docs.npmjs.com/cli/v11/commands/npm-run/"
+      },
+      {
+        "title": "Node.js Packages",
+        "url": "https://nodejs.org/api/packages.html"
+      }
+    ]
+  },
+  {
+    "id": "config/dependencies",
+    "title": "依赖版本与锁文件",
+    "section": "typescript",
+    "group": "项目配置",
+    "file": "content/local/config/dependencies.md",
+    "summary": "依赖声明给出允许的版本，锁文件记录解析后的依赖树。npm ci 按匹配的锁文件进行干净安装。",
+    "syntax": {
+      "lang": "bash",
+      "code": "# 已有匹配 package-lock.json 的 npm 项目\nnpm ci\nnpm run check"
+    },
+    "related": [
+      "config/package-json",
+      "config/npm",
+      "config/module-resolution"
+    ],
+    "sources": [
+      {
+        "title": "npm package-lock.json",
+        "url": "https://docs.npmjs.com/cli/v11/configuring-npm/package-lock-json/"
+      },
+      {
+        "title": "npm ci",
+        "url": "https://docs.npmjs.com/cli/v11/commands/npm-ci/"
+      },
+      {
+        "title": "npm node-semver",
+        "url": "https://github.com/npm/node-semver#ranges"
+      }
+    ]
+  },
+  {
+    "id": "config/module-resolution",
+    "title": "模块解析与构建分工",
+    "section": "typescript",
+    "group": "项目配置",
+    "file": "content/local/config/module-resolution.md",
+    "summary": "TypeScript 的类型解析应匹配实际运行环境或打包器。paths 不会改写输出导入，类型检查通过也不保证运行成功。",
+    "syntax": {
+      "lang": "json",
+      "code": "{\n  \"compilerOptions\": {\n    \"module\": \"NodeNext\",\n    \"moduleResolution\": \"NodeNext\",\n    \"strict\": true\n  }\n}"
+    },
+    "related": [
+      "typescript/module",
+      "config/tsconfig",
+      "config/tsc",
+      "config/package-json"
+    ],
+    "sources": [
+      {
+        "title": "TypeScript Modules Reference",
+        "url": "https://www.typescriptlang.org/docs/handbook/modules/reference.html"
+      },
+      {
+        "title": "TypeScript Modules Theory",
+        "url": "https://www.typescriptlang.org/docs/handbook/modules/theory.html"
+      },
+      {
+        "title": "Node.js Packages",
+        "url": "https://nodejs.org/api/packages.html"
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+---
+import GuideLayout from '../layouts/GuideLayout.astro';
+import { articles, navigation, renderArticle, type Article } from '../lib/content';
+
+export function getStaticPaths() {
+  return articles.map(article => ({ params: { slug: article.id }, props: { article } }));
+}
+const { article } = Astro.props as { article: Article };
+const { html, headings } = renderArticle(article);
+const members = articles;
+const index = members.findIndex(item => item.id === article.id);
+const neighbor = (item?: Article) => item && ({title: item.title, href: item.path});
+---
+<GuideLayout title={article.title} description={article.summary} section={article.section} currentPath={article.path} navigation={navigation} headings={headings} previous={neighbor(members[index - 1])} next={neighbor(members[index + 1])}>
+  <h1>{article.title}</h1>
+  <div class="prose" data-article-body set:html={html} />
+</GuideLayout>

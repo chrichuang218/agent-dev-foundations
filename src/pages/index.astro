@@ -1,0 +1,13 @@
+---
+import { sitePath } from '../lib/site';
+import GuideLayout from '../layouts/GuideLayout.astro';
+import { navigation } from '../lib/content';
+---
+<GuideLayout title="Agent Dev Foundations" description="面向后端程序员的 Agent 开发基础知识，涵盖 HTML、JavaScript、ES6、TypeScript 与项目配置。" currentPath="/" navigation={navigation} headings={[{depth: 2, slug: 'browse', text: '目录'}]}>
+  <h1>Agent Dev Foundations</h1>
+  <p>面向后端程序员的 Agent 开发基础知识。</p>
+  <h2 id="browse">目录</h2>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="内容分区">
+    <table><thead><tr><th>分区</th><th>内容</th><th>章节</th></tr></thead><tbody>{navigation.map(section => <tr><td><a href={sitePath(section.href)}>{section.label}</a></td><td>{section.description}</td><td>{section.count}</td></tr>)}</tbody></table>
+  </div>
+</GuideLayout>

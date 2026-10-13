@@ -1,0 +1,46 @@
+---
+import { sitePath } from '../lib/site';
+import ArticleOutline from './ArticleOutline.astro';
+import { chapterLabel, type NavigationSection } from '../lib/navigation';
+
+interface Props {
+  navigation: NavigationSection[];
+  section?: string;
+  currentPath: string;
+  headings: { depth: number; slug: string; text: string }[];
+}
+const { navigation, section, currentPath, headings } = Astro.props;
+const articleHeadings = headings.filter(heading => heading.depth === 2);
+---
+<div class="app-name"><a class="app-name-link" href={sitePath("/")}>Agent Dev Foundations</a></div>
+<div class="search">
+  <div class="input-wrap">
+    <input data-search type="search" aria-label="搜索文档" placeholder="搜索文档..." autocomplete="off" />
+    <button class="clear-button" type="button" aria-label="清空搜索" hidden>
+      <svg width="26" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#ccc" /><path stroke="white" stroke-width="2" d="M8.25,8.25,15.75,15.75" /><path stroke="white" stroke-width="2" d="M8.25,15.75,15.75,8.25" /></svg>
+    </button>
+  </div>
+  <div class="results-panel" hidden></div>
+</div>
+<nav class="sidebar-nav" aria-label="章节目录">
+  <ul>
+    <li class:list={{ active: currentPath === '/' }}><p><a href={sitePath("/")} title="首页" aria-current={currentPath === '/' ? 'page' : undefined}>首页</a></p></li>
+    {navigation.map(item => {
+      const expanded = item.id === section;
+      let chapterNumber = 0;
+      return <li class:list={['nav-section', { 'section-current': expanded }]} data-section={item.id}>
+        <p><a href={sitePath(item.href)} title={item.label} data-section-toggle={expanded ? '' : undefined} aria-current={currentPath === item.href ? 'page' : undefined} aria-expanded={expanded}>{item.label}</a></p>
+        {expanded && <ul class="section-children">
+          {item.groups.map(group => <li>
+            <p><strong>{group.label}</strong></p>
+            <ul>
+              {group.items.map(chapter => <li class:list={{ active: chapter.href === currentPath }}>
+                <a href={sitePath(chapter.href)} title={chapter.title} aria-current={chapter.href === currentPath ? 'page' : undefined} aria-expanded={chapter.href === currentPath && articleHeadings.length > 0 ? 'true' : undefined}>{++chapterNumber}. {chapterLabel(chapter.title)}</a>{chapter.href === currentPath && <ArticleOutline headings={articleHeadings} />}
+              </li>)}
+            </ul>
+          </li>)}
+        </ul>}
+      </li>;
+    })}
+  </ul>
+</nav>

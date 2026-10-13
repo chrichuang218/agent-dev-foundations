@@ -1,0 +1,29 @@
+---
+import GuideLayout from '../layouts/GuideLayout.astro';
+import { articles, navigation } from '../lib/content';
+import sourceLock from '../../sources.lock.json';
+const headings = [{depth:2,slug:'sources',text:'内容来源'},{depth:2,slug:'maintenance',text:'整理与维护'},{depth:2,slug:'verification',text:'版本与验证边界'},{depth:2,slug:'license',text:'许可与署名'}];
+---
+<GuideLayout title="关于本站" currentPath="/about/" navigation={navigation} headings={headings}>
+  <h1>关于本站</h1>
+  <div class="prose">
+    <h2 id="sources">内容来源</h2>
+    <p>主体来自阮一峰（Ruan Yifeng）及贡献者编写的四份教程。完整收录 HTML 的 17 篇、ES6 的 37 篇；JavaScript、TypeScript 沿用已有内容范围，6 篇项目配置归入 TypeScript 目录末尾，共 {articles.length} 篇。HTML 与 ES6 教程中的浏览器示例和附录完整保留。</p>
+    <ul>{Object.entries(sourceLock.sources).map(([id, source]) => <li><a href={`${source.repository}/tree/${source.commit}`}>{navigation.find(section => section.id === id)?.label} 教程固定版本 {source.commit.slice(0, 12)}</a> · <a href={source.website}>在线原教程</a> · <a href={source.licenseUrl}>{source.license}</a></li>)}</ul>
+    <p>补充配置文章依据 npm、Node.js 与 TypeScript 官方文档独立整理。逐篇来源集中列于下方；网站页面、字体和代码高亮均可本地加载，正常阅读无需访问原教程。</p>
+    <details class="source-register"><summary>逐篇来源与固定版本</summary><ul>{articles.map(article => <li><strong>{article.title}</strong>{article.sourceCommit ? <><span> · </span><a href={article.sourceUrl}>原文</a><span> · </span><a href={`${article.sourceRepo}/blob/${article.sourceCommit}/docs/${article.sourceFile.split('/docs/')[1]}`}>固定版本</a></> : article.sources?.map(source => <><span> · </span><a href={source.url}>{source.title}</a></>)}{article.officialSources?.map(url => <><span> · </span><a href={url}>补充依据</a></>)}</li>)}</ul></details>
+    <h2 id="maintenance">整理与维护</h2>
+    <p>保留来源的完整讲解与必要示例，调整目录、排版、锚点和链接。文章标题后直接展示正文，来源记录集中在本页。ArrayBuffer 和 debugger 从混合语言与浏览器 API 的章节中按完整小节抽取；未静默省略语言小节。</p>
+    <p>原文快照与本站编辑分开保存；导入流程核对固定版本的 SHA-256，不覆盖本站编辑数据与补充文章。已有速查、勘误和版本注记保留在本地编辑记录中，文章页不展示速查或阅读提示；原始快照保持可追溯。</p>
+    <h2 id="verification">版本与验证边界</h2>
+    <p>原 JavaScript 教程主要以 ECMAScript 5.1 为基础；保留 var、构造函数和原型等旧项目中常见的写法。TypeScript 教程包括现代类型知识及旧版配置、装饰器语法，阅读时请结合实际项目工具版本。</p>
+    <p>ES6 教程也涉及后续 ECMAScript 版本、历史提案和环境相关用法。未列入上游菜单的五篇文章放在“仓库附录”，不表示其中所有提案或 API 已成为当前标准或可在所有环境运行。</p>
+    <p>本站不宣称所有正文已全面更新至最新语言版本。类型检查属于开发阶段，运行时行为由 JavaScript 与宿主环境决定；示例中的浏览器、Node.js 或第三方库上下文仍需对应环境。</p>
+    <p>构建与自动检查覆盖章节、站内链接、标题锚点及本地资源；浏览器检查覆盖代表页面及响应式交互。没有执行全部文章示例，也没有逐一验证历史外链。准确的工具版本、检查结果与截图保存在项目的 <code>docs/VERIFICATION.md</code>。</p>
+    <h2 id="license">许可与署名</h2>
+    <ul><li>JavaScript、ES6 内容：原作阮一峰及贡献者，依据在线明确声明采用 <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>。ES6 仓库的 package.json 写作“ICC BY-SA 4.0”，该异常与在线声明的差异已记录。</li><li>TypeScript、HTML 内容：原作阮一峰及贡献者，依据实际来源仓库的 package.json 采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>。在线通用页脚标注为 3.0，此差异已记录。</li><li>HTML 图像章节中的两张响应式配图：原作 Mozilla Contributors，出自 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images">MDN Responsive images</a>。依据 <a href="https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license">MDN 文档许可</a>（CC BY-SA 2.5 或后续版本），本次采用 CC BY-SA 4.0。上游提供 JPEG 版本，本站保留图片字节并改为本地加载。</li><li>本站原创配置补充：chrichuang218，CC BY-SA 4.0。</li><li>本站原创程序：chrichuang218，MIT；正文不因此变为 MIT。</li><li>阅读界面参考 <a href="https://github.com/Windy3f3f3f3f/how-claude-code-works">Windy3f3f3f3f / how-claude-code-works</a>（MIT）。保留白底、紫色强调、分组侧栏与文档排版方向，适配四分区与静态 URL；未使用其教程正文或统计脚本。本项目是独立站点，阅读界面为非官方复刻，原作者不为本站背书。</li></ul>
+    <p>完整许可证据、逐章清单和 UI 调整记录随项目源码交付。</p>
+    <p>本地主题样式使用 docsify-themeable 0.9.0（MIT），Copyright (c) 2018 John Hildenbiddle。原样保留的主题 CSS、原版许可及来源校验随仓库交付；四份教程仍按其各自内容许可使用。</p>
+    <p>分页样式采用 docsify-pagination 2.10.1（MIT，yelo），代码复制样式采用 docsify-copy-code 3.0.2（MIT，JP Erasmus）。许可证全文保存在项目的 licenses 目录。</p>
+  </div>
+</GuideLayout>

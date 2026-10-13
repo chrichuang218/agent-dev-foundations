@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-13",
+  "base": "http://127.0.0.1:4323",
+  "browser": "Codex in-app browser, Chrome/155.0.0.0, Windows",
+  "desktop": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "pages": [
+      "/",
+      "/javascript/types/function/",
+      "/typescript/generics/",
+      "/config/package-json/"
+    ],
+    "horizontalOverflow": false
+  },
+  "mobile": {
+    "viewport": [
+      390,
+      844
+    ],
+    "pages": [
+      "/javascript/types/function/",
+      "/typescript/generics/",
+      "/config/package-json/"
+    ],
+    "horizontalOverflow": false,
+    "table": {
+      "clientWidth": 329,
+      "scrollWidth": 513,
+      "keyboardHorizontalScroll": true
+    },
+    "longGenericsCodeBlocks": 8
+  },
+  "checks": {
+    "directArticleOpen": true,
+    "refreshPreservesAnchor": true,
+    "previousAndNext": true,
+    "sectionDirectoryCounts": [
+      38,
+      27,
+      6
+    ],
+    "copyToClipboardRoundTrip": "Read back exact generics quick-reference text using Clipboard API",
+    "mobileDrawerNavigation": true,
+    "escapeClosesAndRestoresMenuFocus": true,
+    "mobileTocClosesOnSelection": true,
+    "sourceAnchorVisibleBelowStickyHeader": true,
+    "tabSkipLinkAndEnterFocusMain": true
+  },
+  "observedConsoleErrors": [],
+  "observedConsoleWarnings": [],
+  "scope": "Representative-page interaction and visual checks; not an exhaustive screen-reader or cross-browser audit. Viewport override reset after verification."
+}

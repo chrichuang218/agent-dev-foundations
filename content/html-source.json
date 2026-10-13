@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-10-13",
+  "chapters": [
+    {
+      "slug": "intro",
+      "title": "HTML 语言简介",
+      "group": "HTML 教程",
+      "summary": "HTML 是网页使用的语言，定义了网页的结构和内容。浏览器访问网站，其实就是从服务器下载 HTML 代码，然后渲染出网页。",
+      "sourceFile": "content/upstream/html/docs/intro.md",
+      "sourceUrl": "https://wangdoc.com/html/intro.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "url",
+      "title": "URL 简介",
+      "group": "HTML 教程",
+      "summary": "URL 是“统一资源定位符”（Uniform Resource Locator）的首字母缩写，中文译为“网址”，表示各种资源的互联网地址。下面就是一个典型的 URL。",
+      "sourceFile": "content/upstream/html/docs/url.md",
+      "sourceUrl": "https://wangdoc.com/html/url.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "attribute",
+      "title": "网页元素的属性",
+      "group": "HTML 教程",
+      "summary": "网页元素的属性（attribute）可以定制元素的行为，不同的属性会导致元素有不同的行为。元素属性的写法是 HTML 标签内部的“键值对”。",
+      "sourceFile": "content/upstream/html/docs/attribute.md",
+      "sourceUrl": "https://wangdoc.com/html/attribute.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "encode",
+      "title": "HTML 字符编码",
+      "group": "HTML 教程",
+      "summary": "网页包含了大量的文字，浏览器必须知道这些文字的编码方法，才能把文字还原出来。",
+      "sourceFile": "content/upstream/html/docs/encode.md",
+      "sourceUrl": "https://wangdoc.com/html/encode.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "semantic",
+      "title": "网页的语义结构",
+      "group": "HTML 教程",
+      "summary": "HTML 标签的名称都带有语义（semantic），使用时应该尽量符合标签的语义，不要用错误语义的标签。语义良好的网页，天然具有良好的结构，对于开发者易读易写，容易维护，也能帮助计算机更好地处理网页内容。",
+      "sourceFile": "content/upstream/html/docs/semantic.md",
+      "sourceUrl": "https://wangdoc.com/html/semantic.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "text",
+      "title": "文本标签",
+      "group": "HTML 教程",
+      "summary": "历史上，网页的主要功能是文本展示。所以，HTML 提供了大量的文本处理标签。",
+      "sourceFile": "content/upstream/html/docs/text.md",
+      "sourceUrl": "https://wangdoc.com/html/text.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "list",
+      "title": "列表标签",
+      "group": "HTML 教程",
+      "summary": "列表是一系列排列好的项目，主要分成两类：有序列表和无序列表。",
+      "sourceFile": "content/upstream/html/docs/list.md",
+      "sourceUrl": "https://wangdoc.com/html/list.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "image",
+      "title": "图像标签",
+      "group": "HTML 教程",
+      "summary": "图片是互联网的重要组成部分，让网页变得丰富多彩。本章介绍如何在网页插入图片。",
+      "sourceFile": "content/upstream/html/docs/image.md",
+      "sourceUrl": "https://wangdoc.com/html/image.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "a",
+      "title": "<a>",
+      "group": "HTML 教程",
+      "summary": "链接（hyperlink）是互联网的核心。它允许用户在页面上，从一个网址跳转到另一个网址，从而把所有资源联系在一起。",
+      "sourceFile": "content/upstream/html/docs/a.md",
+      "sourceUrl": "https://wangdoc.com/html/a.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "link",
+      "title": "<link>",
+      "group": "HTML 教程",
+      "summary": "<link>标签主要用于将当前网页与相关的外部资源联系起来，通常放在<head>元素里面。最常见的用途就是加载 CSS 样式表。",
+      "sourceFile": "content/upstream/html/docs/link.md",
+      "sourceUrl": "https://wangdoc.com/html/link.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "script",
+      "title": "<script>，<noscript>",
+      "group": "HTML 教程",
+      "summary": "<script>标签用于在网页插入脚本，<noscript>标签用于指定浏览器不支持脚本时的显示内容。",
+      "sourceFile": "content/upstream/html/docs/script.md",
+      "sourceUrl": "https://wangdoc.com/html/script.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "multimedia",
+      "title": "多媒体标签",
+      "group": "HTML 教程",
+      "summary": "除了图像，网页还可以放置视频和音频。",
+      "sourceFile": "content/upstream/html/docs/multimedia.md",
+      "sourceUrl": "https://wangdoc.com/html/multimedia.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "iframe",
+      "title": "iframe",
+      "group": "HTML 教程",
+      "summary": "<iframe>标签用于在网页里面嵌入其他网页。",
+      "sourceFile": "content/upstream/html/docs/iframe.md",
+      "sourceUrl": "https://wangdoc.com/html/iframe.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "table",
+      "title": "表格标签",
+      "group": "HTML 教程",
+      "summary": "表格（table）以行（row）和列（column）的形式展示数据。",
+      "sourceFile": "content/upstream/html/docs/table.md",
+      "sourceUrl": "https://wangdoc.com/html/table.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "form",
+      "title": "表单标签",
+      "group": "HTML 教程",
+      "summary": "表单（form）是用户输入信息与网页互动的一种形式。大多数情况下，用户提交的信息会发给服务器，比如网站的搜索栏就是表单。",
+      "sourceFile": "content/upstream/html/docs/form.md",
+      "sourceUrl": "https://wangdoc.com/html/form.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "elements",
+      "title": "其他标签",
+      "group": "HTML 教程",
+      "summary": "介绍 <dialog> 对话框以及 <details>、<summary> 折叠内容标签的用法、JavaScript API 和事件。",
+      "sourceFile": "content/upstream/html/docs/elements.md",
+      "sourceUrl": "https://wangdoc.com/html/elements.html",
+      "sourceListed": true
+    },
+    {
+      "slug": "mobile",
+      "title": "移动设备网页设计",
+      "group": "HTML 教程",
+      "summary": "<meta>的 viewport 设置用来控制网页的视觉大小。",
+      "sourceFile": "content/upstream/html/docs/mobile.md",
+      "sourceUrl": "https://github.com/wangdoc/html-tutorial/blob/37cd99758286dc6734d1d1a897c820eb8890b984/docs/mobile.md",
+      "sourceListed": false
+    }
+  ],
+  "markdownFiles": [
+    {
+      "file": "content/upstream/html/docs/intro.md",
+      "included": true,
+      "path": "/html/intro/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/url.md",
+      "included": true,
+      "path": "/html/url/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/attribute.md",
+      "included": true,
+      "path": "/html/attribute/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/encode.md",
+      "included": true,
+      "path": "/html/encode/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/semantic.md",
+      "included": true,
+      "path": "/html/semantic/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/text.md",
+      "included": true,
+      "path": "/html/text/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/list.md",
+      "included": true,
+      "path": "/html/list/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/image.md",
+      "included": true,
+      "path": "/html/image/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/a.md",
+      "included": true,
+      "path": "/html/a/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/link.md",
+      "included": true,
+      "path": "/html/link/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/script.md",
+      "included": true,
+      "path": "/html/script/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/multimedia.md",
+      "included": true,
+      "path": "/html/multimedia/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/iframe.md",
+      "included": true,
+      "path": "/html/iframe/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/table.md",
+      "included": true,
+      "path": "/html/table/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/form.md",
+      "included": true,
+      "path": "/html/form/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/elements.md",
+      "included": true,
+      "path": "/html/elements/",
+      "reason": "完整 HTML 教程章节；按上游 chapters.yml 顺序纳入"
+    },
+    {
+      "file": "content/upstream/html/docs/mobile.md",
+      "included": true,
+      "path": "/html/mobile/",
+      "reason": "文件在 docs/ 中但未列入上游 chapters.yml；完整纳入并追加到原目录末尾"
+    },
+    {
+      "file": "content/upstream/html/README.md",
+      "included": false,
+      "path": null,
+      "reason": "仓库简介而非教学章节；完整保留来源快照，并将介绍用于分区背景"
+    }
+  ],
+  "assets": [
+    {
+      "originalUrl": "https://www.wangbase.com/blogimg/asset/201906/bg2019061002.jpg",
+      "fetchedUrl": "https://cdn.beekka.com/blogimg/asset/201906/bg2019061002.jpg",
+      "sourceFile": "content/upstream/html/assets/bg2019061002.jpg",
+      "publicPath": "/media/html/bg2019061002.jpg",
+      "sha256": "5e78bc95187aa01f871cb1a8541b1f74dd8bb97eccbde302a961f370358edb61",
+      "articleIds": [
+        "html/image"
+      ],
+      "attribution": "Responsive images by Mozilla Contributors; reproduced in wangdoc HTML tutorial by Ruan Yifeng and contributors.",
+      "originalSource": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images/picture-element-wide.png",
+      "license": "CC-BY-SA-4.0",
+      "licenseBasis": "MDN documentation: CC-BY-SA-2.5 or any later version; locally reproduced under CC-BY-SA-4.0.",
+      "changes": "The wangdoc tutorial supplies JPEG versions of the MDN screenshots; local import preserves downloaded JPEG bytes.",
+      "width": 700,
+      "height": 554,
+      "alt": "响应式图像示例：桌面网页使用横向完整图片"
+    },
+    {
+      "originalUrl": "https://www.wangbase.com/blogimg/asset/201906/bg2019061003.jpg",
+      "fetchedUrl": "https://cdn.beekka.com/blogimg/asset/201906/bg2019061003.jpg",
+      "sourceFile": "content/upstream/html/assets/bg2019061003.jpg",
+      "publicPath": "/media/html/bg2019061003.jpg",
+      "sha256": "08ddc34e30bc18aa72bea128195308ee782715086116ee61139b8a1626c3b5b7",
+      "articleIds": [
+        "html/image"
+      ],
+      "attribution": "Responsive images by Mozilla Contributors; reproduced in wangdoc HTML tutorial by Ruan Yifeng and contributors.",
+      "originalSource": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images/picture-element-narrow.png",
+      "license": "CC-BY-SA-4.0",
+      "licenseBasis": "MDN documentation: CC-BY-SA-2.5 or any later version; locally reproduced under CC-BY-SA-4.0.",
+      "changes": "The wangdoc tutorial supplies JPEG versions of the MDN screenshots; local import preserves downloaded JPEG bytes.",
+      "width": 270,
+      "height": 600,
+      "alt": "响应式图像示例：手机网页使用裁剪后的竖向图片"
+    }
+  ]
+}

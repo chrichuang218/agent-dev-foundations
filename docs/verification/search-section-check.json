@@ -1,0 +1,9 @@
+{
+  "articles": 125,
+  "entries": 1636,
+  "anchors": 1511,
+  "verifiedBodyBlocks": 14917,
+  "copyButtonsExcluded": 4192,
+  "errors": [],
+  "scope": "Built search index: article coverage, every H2/H3 target, valid unique anchors, complete section text, and copy-control exclusion. Empty section bodies are allowed when their next child is a subsection. Does not execute tutorial examples or browser interactions."
+}

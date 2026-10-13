@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-10-13",
+  "purpose": "Official source retrieval for limited editorial corrections and the two empty source sections; not a comprehensive semantic audit.",
+  "results": [
+    {
+      "url": "https://tc39.es/ecma262/multipage/keyed-collections.html",
+      "marker": "Set objects are collections",
+      "excerpt": "nfigurable]] : true }. 24.2 Set Objects Set objects are collections of ECMAScript language values . A Set may contain each distinct value at most once. Distinct values are discriminated using the semantics of the SameValueZero comparison algorithm. Set objects must be implemented using either hash tables or other mecha",
+      "status": 200
+    },
+    {
+      "url": "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+      "marker": "Map<K, V>",
+      "excerpt": "data structures which are generic, like Map<K, V> , Set<T> , and Promise<T> . All this really means is that because of how Map , Set , and Promise behave, they can work with any sets of types. The ReadonlyArray Type The ReadonlyArray is a special type that describes arrays that shouldn’t be changed. ts function ): void",
+      "status": 200
+    },
+    {
+      "url": "https://tc39.es/ecma262/multipage/control-abstraction-objects.html",
+      "marker": "settled",
+      "excerpt": " is neither fulfilled nor rejected. A promise is said to be settled if it is not pending, i.e. if it is either fulfilled or rejected. A promise is resolved if it is settled or if it has been “locked in” to match the state of another promise. Attempting to resolve or rej",
+      "status": 200
+    },
+    {
+      "url": "https://tc39.es/ecma262/multipage/structured-data.html",
+      "marker": "A fixed-length ArrayBuffer",
+      "excerpt": "ength and Resizable ArrayBuffer Objects A fixed-length ArrayBuffer is an ArrayBuffer whose byte length cannot change after creation. A resizable ArrayBuffer is an ArrayBuffer whose byte length may change after creation via calls to ArrayBuffer.prototype.resize ( newLength ) . The kind of ArrayBuffer object that is crea",
+      "status": 200
+    },
+    {
+      "url": "https://html.spec.whatwg.org/multipage/webappapis.html",
+      "marker": "microtask checkpoint",
+      "excerpt": " JavaScript execution context stack is now empty, perform a microtask checkpoint . (If this runs scripts, these algorithms will be invoked reentrantly.) These algorithms are not invoked by one script directly calling another, but they can be invoked reentrantly in an in",
+      "status": 200
+    },
+    {
+      "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html",
+      "marker": "Unlisted Property Narrowing",
+      "excerpt": "asiuk who implemented and iterated on this feature with us. Unlisted Property Narrowing with the in Operator As developers, we often need to deal with values that aren’t fully known at runtime. In fact, we often don’t know if properties exist, whether we’re getting a re",
+      "status": 200
+    },
+    {
+      "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-5.html",
+      "marker": "importsNotUsedAsValues",
+      "excerpt": "ed the following options and behaviors: charset target: ES3 importsNotUsedAsValues noImplicitUseStrict noStrictGenericChecks keyofStringsOnly suppressExcessPropertyErrors suppressImplicitAnyIndexErrors out preserveValueImports prepend in project references implicitly OS",
+      "status": 200
+    },
+    {
+      "url": "https://www.typescriptlang.org/docs/handbook/compiler-options.html",
+      "marker": "When input files are specified",
+      "excerpt": "of TypeScript files by passing in a glob of files you want. When input files are specified on the command line, tsconfig.json files are ignored. sh # Run a compile based on a backwards look through the fs for a tsconfig.json tsc # Emit JS for just the index.ts with the ",
+      "status": 200
+    }
+  ]
+}
