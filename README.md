@@ -4,6 +4,21 @@
 
 面向后端程序员的 Agent 开发基础知识参考站，按目录查阅 **HTML、JavaScript、ES6 和 TypeScript**，项目配置放在 TypeScript 的最后一组。保留阮一峰教程的完整讲解与必要示例，文章标题后直接展示正文，当前小节显示在侧栏目录；署名、版本、许可与逐篇来源集中在“关于”页。
 
+## 界面预览
+
+![桌面端首页：知识目录与技术入口](docs/screenshots/desktop-home.png)
+
+<details>
+<summary>阅读界面 · 浅色与深色</summary>
+
+![浅色阅读界面：JavaScript Promise](docs/screenshots/desktop-reading-light.png)
+
+![深色阅读界面：TypeScript 函数类型](docs/screenshots/desktop-reading-dark.png)
+
+</details>
+
+## 内容范围
+
 项目名：`agent-dev-foundations`。本地目录：`D:\Develop\github\agent-dev-foundations`。原名为 TypeScript Guide，本次更名不改变文章 URL 或内容范围。
 
 当前收录范围共 **125 篇**：HTML 17、JavaScript 38、ES6 37、TypeScript 33（27 篇语言知识与 6 篇项目配置）。HTML 和 ES6 两仓库的全部 `docs/**/*.md` 均纳入，包含上游目录未列出的章节。四个来源共 167 章，纳入 122 章（其中原 JavaScript 教程的 2 章按完整语言小节抽取），维持原有 45 章排除；另独立补充 3 篇工程配置文章。没有将完整教程改为摘要，本轮不加入精简目录按钮。
