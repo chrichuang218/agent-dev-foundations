@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-15",
+  "source": "D:\\Develop\\github\\agent-dev-foundations\\skills\\tutorial-site-rebuild",
+  "installed": "C:/Users/h00019146.HIHONOR/.codex/skills/tutorial-site-rebuild",
+  "backup": "D:\\Develop\\github\\agent-dev-foundations\\.logs\\tutorial-site-rebuild-backup-20261015",
+  "files": 7,
+  "localMarkdownLinks": 6,
+  "displayName": "Tutorial Site Rebuild",
+  "invocation": "$tutorial-site-rebuild",
+  "identical": true
+}
