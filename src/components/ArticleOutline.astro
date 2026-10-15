@@ -1,7 +1,8 @@
 ---
 interface Props {
   headings: { depth: number; slug: string; text: string }[];
+  href?: string;
 }
-const { headings } = Astro.props;
+const { headings, href = '' } = Astro.props;
 ---
-{headings.length > 0 && <ul class="app-sub-sidebar" aria-label="本页小节">{headings.map(heading => <li><a class="section-link" href={`#${heading.slug}`} title={heading.text}>{heading.text}</a></li>)}</ul>}
+{headings.length > 0 && <ul class="app-sub-sidebar" aria-label="章节小节">{headings.map(heading => <li><a class="section-link" href={`${href}#${heading.slug}`} title={heading.text}>{heading.text}</a></li>)}</ul>}

@@ -1,6 +1,7 @@
 ---
 import { sitePath } from '../lib/site';
 import ArticleOutline from './ArticleOutline.astro';
+import { outlines } from '../lib/outlines';
 import { chapterLabel, type NavigationSection } from '../lib/navigation';
 
 interface Props {
@@ -9,8 +10,7 @@ interface Props {
   currentPath: string;
   headings: { depth: number; slug: string; text: string }[];
 }
-const { navigation, section, currentPath, headings } = Astro.props;
-const articleHeadings = headings.filter(heading => heading.depth === 2);
+const { navigation, section, currentPath } = Astro.props;
 ---
 <div class="app-name"><a class="app-name-link" href={sitePath("/")}>Agent Dev Foundations</a></div>
 <div class="search">
@@ -34,9 +34,15 @@ const articleHeadings = headings.filter(heading => heading.depth === 2);
           {item.groups.map(group => <li>
             <p><strong>{group.label}</strong></p>
             <ul>
-              {group.items.map(chapter => <li class:list={{ active: chapter.href === currentPath }}>
-                <a href={sitePath(chapter.href)} title={chapter.title} aria-current={chapter.href === currentPath ? 'page' : undefined} aria-expanded={chapter.href === currentPath && articleHeadings.length > 0 ? 'true' : undefined}>{++chapterNumber}. {chapterLabel(chapter.title)}</a>{chapter.href === currentPath && <ArticleOutline headings={articleHeadings} />}
-              </li>)}
+              {group.items.map(chapter => {
+                const current = chapter.href === currentPath;
+                const outline = outlines.get(chapter.href) ?? [];
+                return <li class:list={['chapter-item', { active: current, 'outline-collapsed': !current }]}>
+                  <a href={sitePath(chapter.href)} title={chapter.title} aria-current={current ? 'page' : undefined}>{++chapterNumber}. {chapterLabel(chapter.title)}</a>
+                  {outline.length > 0 && <button class="chapter-toggle" type="button" aria-label={`${chapterLabel(chapter.title)}的小节目录`} aria-expanded={current}><span aria-hidden="true" /></button>}
+                  <ArticleOutline headings={outline} href={current ? '' : sitePath(chapter.href)} />
+                </li>;
+              })}
             </ul>
           </li>)}
         </ul>}

@@ -53,7 +53,7 @@ npm run verify
 - 窄屏代码与表格独立横向滚动。
 - 手机端复用同一个侧栏，展开时将正文向右推移，没有灰色遮罩或独立 X 关闭按钮；汉堡按钮保持三条横线。点击按钮、侧栏外正文或 Escape 收起，跳转文章、搜索结果或小节时也收起；搜索输入和目录折叠操作保持展开。保留可见键盘焦点、跳到正文和减少动态效果支持。
 
-2026-10-13 本轮手机侧栏调整替代了原生 `dialog` 方案，仅供本地 review，不提交、推送、发布或部署。源码依据与有意差异见 [手机侧栏记录](docs/reference/mobile-sidebar.md)；此前版本的验证结果不代替这轮检查。
+手机侧栏采用推移方式替代原生 `dialog` 方案，已随 v0.1.1 发布。源码依据与有意差异见 [手机侧栏记录](docs/reference/mobile-sidebar.md)；此前版本的验证结果不代替这轮检查。
 
 界面加载本地原版 `docsify-themeable@0.9.0` CSS、从 [指定参考站](https://github.com/Windy3f3f3f3f/how-claude-code-works) 提取的样式，以及分页 2.10.1、复制 3.0.2 插件的原始注入 CSS；使用静态组件和小型交互适配，未新增 npm 依赖。没有顶部通栏、面包屑或目录标签面板。来源、哈希和差异见 [UI 依据](docs/UI-REFERENCE.md)。
 
@@ -124,3 +124,5 @@ GitHub Actions 在 main 推送后用 Node.js 24.15.0 执行完整验证，通过
 本地默认根路径；复现发布构建时设置环境变量 `SITE_BASE=/agent-dev-foundations/` 后运行 `npm run verify`。Windows PowerShell 使用 `$env:SITE_BASE="/agent-dev-foundations/"`。静态产物仍在 `dist/`，校验脚本使用同一环境变量核对前缀，关闭该环境变量后可继续原来的根路径本地预览。
 
 标题与复制按钮的本地 review 调整及验证见 [READING-POLISH.md](docs/READING-POLISH.md)。
+
+当前版本 v0.1.2：阅读排版与侧栏改进见 [阅读调整记录](docs/READING-TRIAL.md)。

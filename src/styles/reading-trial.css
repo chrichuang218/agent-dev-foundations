@@ -1,0 +1,95 @@
+/* Local reading-design trial. Removing its layout link restores the baseline. */
+:root {
+  --base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --base-font-weight: 400;
+  --base-color: #404756;
+  --heading-color: #23272f;
+  --strong-color: #23272f;
+  --sidebar-background: #f8f9fc;
+  --sidebar-border-color: #e7e9ef;
+  --sidebar-name-color: #343b4b;
+  --sidebar-nav-link-color: #343b4b;
+  --sidebar-nav-link-color--active: #6745cf;
+  --sidebar-nav-link-color--hover: #6745cf;
+  --sidebar-nav-link-border-width: 0;
+  --code-inline-background: #f0f1f5;
+  --code-inline-color: #495268;
+  --code-inline-padding: 0.12em 0.3em;
+  --code-inline-border-radius: 4px;
+  --code-theme-background: #f7f8fb;
+  --reading-active: #ece7fb;
+  --reading-hover: #eff1f6;
+  --reading-muted: #626d80;
+  --reading-border: #e5e8f0;
+}
+[data-theme="dark"] {
+  --base-color: #c6cad7;
+  --heading-color: #eef0f7;
+  --strong-color: #eef0f7;
+  --sidebar-background: #171824;
+  --sidebar-border-color: #2c2e40;
+  --sidebar-name-color: #e4e5ef;
+  --sidebar-nav-link-color: #c6cad7;
+  --sidebar-nav-link-color--active: #c5b4ff;
+  --sidebar-nav-link-color--hover: #c5b4ff;
+  --code-inline-background: #292b3d;
+  --code-inline-color: #d0c8eb;
+  --code-theme-background: #1c1e2e;
+  --reading-active: #302744;
+  --reading-hover: #222435;
+  --reading-muted: #989fb2;
+  --reading-border: #323548;
+}
+
+.markdown-section { max-width: 960px; padding: 48px 48px 64px; }
+.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4 {
+  font-family: var(--base-font-family); color: var(--heading-color);
+}
+.markdown-section h1 { letter-spacing: -.025em; margin-bottom: 28px; }
+.markdown-section h2 { margin-top: 52px; margin-bottom: 18px; }
+.markdown-section h3 { margin-top: 36px; margin-bottom: 14px; }
+.markdown-section p, .markdown-section li { line-height: 1.85; }
+.markdown-section p { margin: 16px 0; }
+.markdown-section .prose > p:first-child { font-size: 20px; line-height: 1.75; color: var(--heading-color); margin: 0 0 24px; }
+.markdown-section ul, .markdown-section ol { padding-inline-start: 1.5em; margin: 16px 0 24px; }
+.markdown-section li + li { margin-top: 6px; }
+.markdown-section .code-block { margin: 24px 0; }
+.markdown-section p + .code-block { margin-top: 16px; }
+.markdown-section .code-block pre[data-lang] { border: 1px solid var(--reading-border); border-radius: 12px; }
+.code-block .copy-code { top: 5px; right: 5px; }
+.markdown-section .code-block pre code { padding: 38px 24px 22px; line-height: 1.75; }
+.markdown-section .code-block pre[data-lang]::after { color: var(--reading-muted); opacity: 1; font-size: 12px; }
+.markdown-section .table-scroll { margin: 24px 0; border: 1px solid var(--reading-border); border-radius: 12px; }
+.markdown-section .table-scroll table { margin: 0; }
+.markdown-section th, .markdown-section td { padding: 14px 18px; line-height: 1.7; }
+.markdown-section blockquote { border-radius: 0 10px 10px 0; }
+
+.sidebar > .app-name { font-size: 21px; font-weight: 600; letter-spacing: -.025em; }
+.sidebar-nav > ul > .nav-section > p { margin-top: 12px; }
+.sidebar-nav > ul > .nav-section > p > a { font-size: 16px; font-weight: 600; line-height: 1.5; }
+.sidebar-nav > ul > .nav-section > p > a::after { content: "\203a"; }
+.sidebar-nav .section-children > li > p { margin: 16px 0 6px; padding-left: 8px; }
+.sidebar-nav .section-children > li > p strong { font-size: 17px; font-weight: 600; color: var(--sidebar-name-color); }
+.sidebar-nav .section-children > li > ul > li > a { --sidebar-nav-pagelink-background: none; --sidebar-nav-pagelink-background--loaded: none; --sidebar-nav-pagelink-background--active: var(--reading-active); --sidebar-nav-pagelink-padding: 6px 12px 6px 26px; position: relative; padding: 6px 12px 6px 26px; border: 0; border-radius: 8px; margin-right: 0; font-size: 16px; font-weight: 400; line-height: 1.5; }
+.sidebar-nav .section-children > li > ul > li > a:hover { --sidebar-nav-pagelink-background: var(--reading-hover); background-color: var(--reading-hover); text-decoration: none; }
+.sidebar-nav li.active > a[aria-current="page"] { background-color: var(--reading-active); font-weight: 600; }
+.sidebar-nav li.active:not(.outline-collapsed):has(> .app-sub-sidebar > li.active) > a[aria-current="page"] { --sidebar-nav-pagelink-background--active: transparent; background-color: transparent; }
+.sidebar-nav .app-sub-sidebar { margin: 4px 0 12px; padding-left: 20px; }
+.sidebar-nav .app-sub-sidebar a { --sidebar-nav-pagelink-background: none; --sidebar-nav-pagelink-background--loaded: none; padding: 5px 10px; margin-right: 0; border: 0; border-radius: 6px; font-size: 15px; font-weight: 400; line-height: 1.6; color: var(--sidebar-nav-link-color); }
+.sidebar-nav .app-sub-sidebar li.active > a { color: var(--sidebar-nav-link-color--active); background-color: var(--reading-active); }
+
+@media (max-width: 767px) {
+  .markdown-section { padding: 70px 22px 40px; }
+  .markdown-section .prose > p:first-child { font-size: 19px; }
+  .markdown-section .code-block pre code { padding: 42px 16px 18px; }
+  .markdown-section th, .markdown-section td { padding: 12px; }
+}
+@media print { .markdown-section { max-width: none; padding: 0; } }
+
+/* A persistent control keeps chapter navigation separate from outline expansion. */
+.chapter-item { position: relative; }
+.chapter-item.outline-collapsed > .app-sub-sidebar { display: none; }
+.chapter-toggle { position: absolute; left: 0; top: 0; width: 20px; height: 36px; padding: 0; border: 0; background: transparent; color: var(--sidebar-nav-link-color); cursor: pointer; display: grid; place-items: center; }
+.chapter-item.active > .chapter-toggle { color: var(--sidebar-nav-link-color--active); }
+.chapter-toggle span { width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); }
+.chapter-toggle[aria-expanded="true"] span { transform: rotate(45deg); }

@@ -1,6 +1,7 @@
 ---
 import { sitePath, repositoryUrl } from '../lib/site';
 import globalStyles from '../styles/global.css?url';
+import readingTrial from '../styles/reading-trial.css?url';
 import SidebarNav from '../components/SidebarNav.astro';
 import Pagination from '../components/Pagination.astro';
 import type { ChapterLink, NavigationSection } from '../lib/navigation';
@@ -42,6 +43,7 @@ const pageTitle = title === 'Agent Dev Foundations' ? title : `${title} · Agent
     <link rel="stylesheet" href={sitePath("/styles/reference-shell.css")} />
     <link rel="stylesheet" href={sitePath("/styles/reference-pagination.css")} />
     <link rel="stylesheet" href={globalStyles} />
+    <link rel="stylesheet" href={readingTrial} />
     <title>{pageTitle}</title>
   </head>
   <body class="ready sticky">
@@ -62,7 +64,6 @@ const pageTitle = title === 'Agent Dev Foundations' ? title : `${title} · Agent
     </section>
     </main>
     <div class="top-btn-group"><button id="dark-toggle" class="dark-toggle-btn" type="button" aria-label="切换深色模式" aria-pressed="false" title="切换深色模式">🌙</button></div>
-    <button class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
     <script src="../scripts/reader.ts"></script>
   </body>
 </html>

@@ -22,7 +22,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .sidebar .app-name-link { color: var(--sidebar-name-color); text-decoration: none; }
 .sidebar-nav { font-size: 16px; }
 .sidebar-nav .app-sub-sidebar { font-size: 15px; }
-.sidebar-nav li.active:not(.collapse):has(> .app-sub-sidebar > li.active) > a[aria-current="page"] { border-right-color: transparent; }
+.sidebar-nav li.active:not(.outline-collapsed):has(> .app-sub-sidebar > li.active) > a[aria-current="page"] { border-right-color: transparent; }
 .sidebar-nav > ul > .section-current > p > a { color: var(--theme-color); font-weight: 600; }
 .sidebar-nav > ul > .nav-section > p > a::after { content: '›'; display: inline-block; width: 16px; margin-left: 6px; text-align: center; }
 .sidebar-nav > ul > .nav-section > p > a[aria-expanded="true"]::after { transform: rotate(90deg); }

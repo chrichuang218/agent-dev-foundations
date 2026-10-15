@@ -89,13 +89,13 @@ document.querySelectorAll<HTMLAnchorElement>('[data-section-toggle]').forEach(li
   });
 });
 
-document.querySelectorAll<HTMLAnchorElement>('.sidebar-nav a[aria-current="page"][aria-expanded]').forEach(link => {
+document.querySelectorAll<HTMLButtonElement>('.chapter-toggle').forEach(link => {
   link.addEventListener('click', event => {
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     const outline = link.nextElementSibling;
     if (!outline?.classList.contains('app-sub-sidebar')) return;
     event.preventDefault();
-    const collapsed = link.parentElement!.classList.toggle('collapse');
+    const collapsed = link.parentElement!.classList.toggle('outline-collapsed');
     link.setAttribute('aria-expanded', String(!collapsed));
   });
 });
@@ -161,13 +161,6 @@ document.querySelectorAll<HTMLButtonElement>('button.copy-code').forEach(button 
   });
 });
 
-const backToTop = document.querySelector<HTMLButtonElement>('.back-to-top');
-backToTop?.addEventListener('click', () => {
-  document.querySelector<HTMLElement>('#main-content')?.focus({ preventScroll: true });
-  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
-  restoreSidebarScroll(sidebar);
-});
-
 const headingLinks = [...document.querySelectorAll<HTMLAnchorElement>('.section-link[href^="#"]')].map(link => ({
   link,
   heading: document.getElementById(decodeURIComponent(link.hash.slice(1))),
@@ -175,7 +168,6 @@ const headingLinks = [...document.querySelectorAll<HTMLAnchorElement>('.section-
 let scheduled = false;
 let previousHeading: HTMLElement | null = null;
 function updateReadingPosition() {
-  backToTop?.classList.toggle('visible', window.scrollY > 300);
   let current: HTMLElement | null = null;
   for (const item of headingLinks) {
     const offset = Number.parseFloat(getComputedStyle(item.heading!).scrollMarginTop) || 0;
