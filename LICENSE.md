@@ -16,6 +16,8 @@
 | `public/styles/reference-pagination.css` 与分页结构适配 | docsify-pagination 2.10.1；Copyright (c) 2017 - present, yelo。MIT 全文见 `licenses/docsify-pagination-MIT.txt`；样式从原插件实际注入字符串提取，来源与哈希见 `docs/reference/pagination-notes.md` |
 | `public/styles/reference-copy.css` 与复制按钮结构适配 | docsify-copy-code 3.0.2；Copyright (c) 2017 JP Erasmus。MIT 全文见 `licenses/docsify-copy-code-MIT.txt`；来源、提取方式与哈希见 `docs/reference/copy-notes.md` |
 | npm 依赖 | 各自的软件许可，见已安装包中的许可文件及 lockfile 固定版本 |
+| React、Node.js、Next.js、Python SVG 标识 | 来自 Devicon，MIT，Copyright (c) 2015 konpa，全文见 `licenses/devicon-MIT.txt`；品牌权利归各自权利人 |
+| 首页技术标识 `public/media/languages/` | HTML5：W3C，CC BY 3.0；JavaScript：Christopher Williams / JSConf，MIT；TypeScript：Microsoft 官方品牌素材，遵循其品牌指引，不纳入本站原创 MIT 许可。来源详见 `licenses/language-logos-NOTICE.md` |
 
 来源 commit、许可证据及改编说明见 [来源记录](docs/SOURCES.md)。本地实现不代表原作者认可或背书。本地预览默认 noindex；公开版本使用独立站点名称与上述署名，不代表原作者背书。
 

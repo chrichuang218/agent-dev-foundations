@@ -13,6 +13,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .skip-link:focus { top: 10px; }
 
 /* Compact wordmark keeps the full site name readable in the mobile sidebar. */
+.sidebar { scrollbar-gutter: stable; }
 .sidebar > .app-name {
   margin: var(--sidebar-name-margin); padding: var(--sidebar-name-padding);
   background: var(--sidebar-name-background); color: var(--sidebar-name-color);

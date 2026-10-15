@@ -2,6 +2,20 @@
 
 日期：2026-10-13（Asia/Shanghai）。本记录区分正文完整性、网站功能和示例检查，不把构建通过等同于教程全部语义正确。
 
+## v0.1.3 发布前验收 — 2026-10-15
+
+用户明确授权提交、发布与部署。使用 `SITE_BASE=/agent-dev-foundations/` 执行 `npm run verify` 全部通过：17 个类型检查文件零诊断；133 个 HTML、125 篇正文、16,238 个原文块；36,722 个内部链接、1,073 个本地资源和 31,222 个锚点引用无错误。搜索覆盖 1,636 条入口、1,511 个锚点；8 个 JSON 示例和 1 个选定 TypeScript 示例通过，未执行全部教程示例。
+
+发布前缀预览地址 `http://127.0.0.1:4339/agent-dev-foundations/` 的 133 页 HTTP 检查通过，未知路径返回 404。已有根路径服务不适用于带前缀构建，因此另启临时前缀预览服务完成检查。
+
+浏览器验证：
+- 桌面首屏 scrollY=0，窗口高度 919px，第二行底部约 897px；八张卡片与技术图标正常显示。
+- 四个本地目录带正确前缀，React 为官方中文文档外链；Next.js、Node.js、Python 为无 href、不可聚焦的 DIV。
+- 390×844 浅色/深色布局两列，documentWidth=375，不超过窗口宽度，图片均加载成功。此前对同版响应式规则检查 360px 两列及 320px 单列，无横向溢出；未做真实手机测试。
+- TypeScript 侧栏展开/收起时，标志 x=65.96875、y=27 不变。
+
+截图：[桌面首页](verification/home-redesign-desktop.jpg)、[手机深色](verification/home-redesign-mobile-dark.jpg)、[侧栏](verification/sidebar-brand-stable.jpg)。设计范围与来源见 [首页设计记录](reference/homepage-design.md)。部署结果以 v0.1.3 的 GitHub Actions 和 Release 为准。
+
 ## v0.1.1 发布验收
 
 用户在本地预览后明确要求部署发布，解除下方手机侧栏阶段的仅本地限制。发布前在 `/agent-dev-foundations/` 路径执行 `npm run verify` 全部通过：16 个文件类型检查无诊断，133 个 HTML（含跳转页），125 篇正文及 16,238 个原文块，7,994 个内部链接引用与 2,494 个锚点引用；搜索 1,636 条入口及 1,511 个小节锚点完整。

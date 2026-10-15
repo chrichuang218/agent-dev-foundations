@@ -1,670 +1,670 @@
 {
-  "base": "http://127.0.0.1:4323",
+  "base": "http://127.0.0.1:4339",
   "pages": 133,
   "unknownRouteStatus": 404,
   "results": [
     {
-      "route": "/404.html",
+      "route": "/agent-dev-foundations/404.html",
       "status": 200,
       "title": "页面未找到 · Agent Dev Foundations"
     },
     {
-      "route": "/about/",
+      "route": "/agent-dev-foundations/about/",
       "status": 200,
       "title": "关于本站 · Agent Dev Foundations"
     },
     {
-      "route": "/config/dependencies/",
+      "route": "/agent-dev-foundations/config/dependencies/",
       "status": 200,
       "title": "依赖版本与锁文件 · Agent Dev Foundations"
     },
     {
-      "route": "/config/",
+      "route": "/agent-dev-foundations/config/",
       "status": 200,
-      "title": "Redirecting to: /typescript/#project-config"
+      "title": "Redirecting to: /agent-dev-foundations/typescript/#project-config"
     },
     {
-      "route": "/config/module-resolution/",
+      "route": "/agent-dev-foundations/config/module-resolution/",
       "status": 200,
       "title": "模块解析与构建分工 · Agent Dev Foundations"
     },
     {
-      "route": "/config/npm/",
+      "route": "/agent-dev-foundations/config/npm/",
       "status": 200,
       "title": "TypeScript 项目使用 npm 模块 · Agent Dev Foundations"
     },
     {
-      "route": "/config/package-json/",
+      "route": "/agent-dev-foundations/config/package-json/",
       "status": 200,
       "title": "读懂 package.json · Agent Dev Foundations"
     },
     {
-      "route": "/config/tsc/",
+      "route": "/agent-dev-foundations/config/tsc/",
       "status": 200,
       "title": "tsc 命令行编译器 · Agent Dev Foundations"
     },
     {
-      "route": "/config/tsconfig/",
+      "route": "/agent-dev-foundations/config/tsconfig/",
       "status": 200,
       "title": "tsconfig.json · Agent Dev Foundations"
     },
     {
-      "route": "/es6/acknowledgment/",
+      "route": "/agent-dev-foundations/es6/acknowledgment/",
       "status": 200,
       "title": "鸣谢 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/array/",
+      "route": "/agent-dev-foundations/es6/array/",
       "status": 200,
       "title": "数组的扩展 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/arraybuffer/",
+      "route": "/agent-dev-foundations/es6/arraybuffer/",
       "status": 200,
       "title": "ArrayBuffer · Agent Dev Foundations"
     },
     {
-      "route": "/es6/async/",
+      "route": "/agent-dev-foundations/es6/async/",
       "status": 200,
       "title": "async 函数 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/async-iterator/",
+      "route": "/agent-dev-foundations/es6/async-iterator/",
       "status": 200,
       "title": "异步遍历器 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/class/",
+      "route": "/agent-dev-foundations/es6/class/",
       "status": 200,
       "title": "Class 的基本语法 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/class-extends/",
+      "route": "/agent-dev-foundations/es6/class-extends/",
       "status": 200,
       "title": "Class 的继承 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/decorator/",
+      "route": "/agent-dev-foundations/es6/decorator/",
       "status": 200,
       "title": "Decorator · Agent Dev Foundations"
     },
     {
-      "route": "/es6/destructuring/",
+      "route": "/agent-dev-foundations/es6/destructuring/",
       "status": 200,
       "title": "变量的解构赋值 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/fp/",
+      "route": "/agent-dev-foundations/es6/fp/",
       "status": 200,
       "title": "函数式编程 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/function/",
+      "route": "/agent-dev-foundations/es6/function/",
       "status": 200,
       "title": "函数的扩展 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/generator/",
+      "route": "/agent-dev-foundations/es6/generator/",
       "status": 200,
       "title": "Generator 函数的语法 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/generator-async/",
+      "route": "/agent-dev-foundations/es6/generator-async/",
       "status": 200,
       "title": "Generator 函数的异步应用 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/",
+      "route": "/agent-dev-foundations/es6/",
       "status": 200,
       "title": "ES6 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/intro/",
+      "route": "/agent-dev-foundations/es6/intro/",
       "status": 200,
       "title": "ECMAScript 6 简介 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/iterator/",
+      "route": "/agent-dev-foundations/es6/iterator/",
       "status": 200,
       "title": "Iterator 和 for...of 循环 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/let/",
+      "route": "/agent-dev-foundations/es6/let/",
       "status": 200,
       "title": "let 和 const 命令 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/mixin/",
+      "route": "/agent-dev-foundations/es6/mixin/",
       "status": 200,
       "title": "Mixin · Agent Dev Foundations"
     },
     {
-      "route": "/es6/module/",
+      "route": "/agent-dev-foundations/es6/module/",
       "status": 200,
       "title": "Module 的语法 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/module-loader/",
+      "route": "/agent-dev-foundations/es6/module-loader/",
       "status": 200,
       "title": "Module 的加载实现 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/number/",
+      "route": "/agent-dev-foundations/es6/number/",
       "status": 200,
       "title": "数值的扩展 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/object/",
+      "route": "/agent-dev-foundations/es6/object/",
       "status": 200,
       "title": "对象的扩展 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/object-methods/",
+      "route": "/agent-dev-foundations/es6/object-methods/",
       "status": 200,
       "title": "对象的新增方法 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/operator/",
+      "route": "/agent-dev-foundations/es6/operator/",
       "status": 200,
       "title": "运算符的扩展 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/promise/",
+      "route": "/agent-dev-foundations/es6/promise/",
       "status": 200,
       "title": "Promise 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/proposals/",
+      "route": "/agent-dev-foundations/es6/proposals/",
       "status": 200,
       "title": "最新提案 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/proxy/",
+      "route": "/agent-dev-foundations/es6/proxy/",
       "status": 200,
       "title": "Proxy · Agent Dev Foundations"
     },
     {
-      "route": "/es6/reference/",
+      "route": "/agent-dev-foundations/es6/reference/",
       "status": 200,
       "title": "参考链接 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/reflect/",
+      "route": "/agent-dev-foundations/es6/reflect/",
       "status": 200,
       "title": "Reflect · Agent Dev Foundations"
     },
     {
-      "route": "/es6/regex/",
+      "route": "/agent-dev-foundations/es6/regex/",
       "status": 200,
       "title": "正则的扩展 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/set-map/",
+      "route": "/agent-dev-foundations/es6/set-map/",
       "status": 200,
       "title": "Set 和 Map 数据结构 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/simd/",
+      "route": "/agent-dev-foundations/es6/simd/",
       "status": 200,
       "title": "SIMD · Agent Dev Foundations"
     },
     {
-      "route": "/es6/spec/",
+      "route": "/agent-dev-foundations/es6/spec/",
       "status": 200,
       "title": "读懂规格 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/string/",
+      "route": "/agent-dev-foundations/es6/string/",
       "status": 200,
       "title": "字符串的扩展 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/string-methods/",
+      "route": "/agent-dev-foundations/es6/string-methods/",
       "status": 200,
       "title": "字符串的新增方法 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/style/",
+      "route": "/agent-dev-foundations/es6/style/",
       "status": 200,
       "title": "编程风格 · Agent Dev Foundations"
     },
     {
-      "route": "/es6/symbol/",
+      "route": "/agent-dev-foundations/es6/symbol/",
       "status": 200,
       "title": "Symbol · Agent Dev Foundations"
     },
     {
-      "route": "/es6/temporal/",
+      "route": "/agent-dev-foundations/es6/temporal/",
       "status": 200,
       "title": "Temporal API · Agent Dev Foundations"
     },
     {
-      "route": "/html/a/",
+      "route": "/agent-dev-foundations/html/a/",
       "status": 200,
       "title": "<a> · Agent Dev Foundations"
     },
     {
-      "route": "/html/attribute/",
+      "route": "/agent-dev-foundations/html/attribute/",
       "status": 200,
       "title": "网页元素的属性 · Agent Dev Foundations"
     },
     {
-      "route": "/html/elements/",
+      "route": "/agent-dev-foundations/html/elements/",
       "status": 200,
       "title": "其他标签 · Agent Dev Foundations"
     },
     {
-      "route": "/html/encode/",
+      "route": "/agent-dev-foundations/html/encode/",
       "status": 200,
       "title": "HTML 字符编码 · Agent Dev Foundations"
     },
     {
-      "route": "/html/form/",
+      "route": "/agent-dev-foundations/html/form/",
       "status": 200,
       "title": "表单标签 · Agent Dev Foundations"
     },
     {
-      "route": "/html/iframe/",
+      "route": "/agent-dev-foundations/html/iframe/",
       "status": 200,
       "title": "iframe · Agent Dev Foundations"
     },
     {
-      "route": "/html/image/",
+      "route": "/agent-dev-foundations/html/image/",
       "status": 200,
       "title": "图像标签 · Agent Dev Foundations"
     },
     {
-      "route": "/html/",
+      "route": "/agent-dev-foundations/html/",
       "status": 200,
       "title": "HTML · Agent Dev Foundations"
     },
     {
-      "route": "/html/intro/",
+      "route": "/agent-dev-foundations/html/intro/",
       "status": 200,
       "title": "HTML 语言简介 · Agent Dev Foundations"
     },
     {
-      "route": "/html/link/",
+      "route": "/agent-dev-foundations/html/link/",
       "status": 200,
       "title": "<link> · Agent Dev Foundations"
     },
     {
-      "route": "/html/list/",
+      "route": "/agent-dev-foundations/html/list/",
       "status": 200,
       "title": "列表标签 · Agent Dev Foundations"
     },
     {
-      "route": "/html/mobile/",
+      "route": "/agent-dev-foundations/html/mobile/",
       "status": 200,
       "title": "移动设备网页设计 · Agent Dev Foundations"
     },
     {
-      "route": "/html/multimedia/",
+      "route": "/agent-dev-foundations/html/multimedia/",
       "status": 200,
       "title": "多媒体标签 · Agent Dev Foundations"
     },
     {
-      "route": "/html/script/",
+      "route": "/agent-dev-foundations/html/script/",
       "status": 200,
       "title": "<script>，<noscript> · Agent Dev Foundations"
     },
     {
-      "route": "/html/semantic/",
+      "route": "/agent-dev-foundations/html/semantic/",
       "status": 200,
       "title": "网页的语义结构 · Agent Dev Foundations"
     },
     {
-      "route": "/html/table/",
+      "route": "/agent-dev-foundations/html/table/",
       "status": 200,
       "title": "表格标签 · Agent Dev Foundations"
     },
     {
-      "route": "/html/text/",
+      "route": "/agent-dev-foundations/html/text/",
       "status": 200,
       "title": "文本标签 · Agent Dev Foundations"
     },
     {
-      "route": "/html/url/",
+      "route": "/agent-dev-foundations/html/url/",
       "status": 200,
       "title": "URL 简介 · Agent Dev Foundations"
     },
     {
-      "route": "/",
+      "route": "/agent-dev-foundations/",
       "status": 200,
       "title": "Agent Dev Foundations"
     },
     {
-      "route": "/javascript/async/general/",
+      "route": "/agent-dev-foundations/javascript/async/general/",
       "status": 200,
       "title": "异步操作概述 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/async/promise/",
+      "route": "/agent-dev-foundations/javascript/async/promise/",
       "status": 200,
       "title": "Promise 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/basic/grammar/",
+      "route": "/agent-dev-foundations/javascript/basic/grammar/",
       "status": 200,
       "title": "JavaScript 的基本语法 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/basic/history/",
+      "route": "/agent-dev-foundations/javascript/basic/history/",
       "status": 200,
       "title": "JavaScript 语言的历史 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/basic/introduction/",
+      "route": "/agent-dev-foundations/javascript/basic/introduction/",
       "status": 200,
       "title": "导论 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/features/conversion/",
+      "route": "/agent-dev-foundations/javascript/features/conversion/",
       "status": 200,
       "title": "数据类型的转换 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/features/debugger/",
+      "route": "/agent-dev-foundations/javascript/features/debugger/",
       "status": 200,
       "title": "debugger 语句 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/features/error/",
+      "route": "/agent-dev-foundations/javascript/features/error/",
       "status": 200,
       "title": "错误处理机制 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/features/style/",
+      "route": "/agent-dev-foundations/javascript/features/style/",
       "status": 200,
       "title": "编程风格 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/",
+      "route": "/agent-dev-foundations/javascript/",
       "status": 200,
       "title": "JavaScript · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/oop/new/",
+      "route": "/agent-dev-foundations/javascript/oop/new/",
       "status": 200,
       "title": "实例对象与 new 命令 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/oop/object/",
+      "route": "/agent-dev-foundations/javascript/oop/object/",
       "status": 200,
       "title": "Object 对象的相关方法 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/oop/prototype/",
+      "route": "/agent-dev-foundations/javascript/oop/prototype/",
       "status": 200,
       "title": "对象的继承 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/oop/strict/",
+      "route": "/agent-dev-foundations/javascript/oop/strict/",
       "status": 200,
       "title": "严格模式 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/oop/this/",
+      "route": "/agent-dev-foundations/javascript/oop/this/",
       "status": 200,
       "title": "this 关键字 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/operators/arithmetic/",
+      "route": "/agent-dev-foundations/javascript/operators/arithmetic/",
       "status": 200,
       "title": "算术运算符 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/operators/bit/",
+      "route": "/agent-dev-foundations/javascript/operators/bit/",
       "status": 200,
       "title": "二进制位运算符 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/operators/boolean/",
+      "route": "/agent-dev-foundations/javascript/operators/boolean/",
       "status": 200,
       "title": "布尔运算符 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/operators/comparison/",
+      "route": "/agent-dev-foundations/javascript/operators/comparison/",
       "status": 200,
       "title": "比较运算符 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/operators/priority/",
+      "route": "/agent-dev-foundations/javascript/operators/priority/",
       "status": 200,
       "title": "其他运算符，运算顺序 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/array/",
+      "route": "/agent-dev-foundations/javascript/stdlib/array/",
       "status": 200,
       "title": "Array 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/arraybuffer/",
+      "route": "/agent-dev-foundations/javascript/stdlib/arraybuffer/",
       "status": 200,
       "title": "ArrayBuffer 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/attributes/",
+      "route": "/agent-dev-foundations/javascript/stdlib/attributes/",
       "status": 200,
       "title": "属性描述对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/boolean/",
+      "route": "/agent-dev-foundations/javascript/stdlib/boolean/",
       "status": 200,
       "title": "Boolean 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/date/",
+      "route": "/agent-dev-foundations/javascript/stdlib/date/",
       "status": 200,
       "title": "Date 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/json/",
+      "route": "/agent-dev-foundations/javascript/stdlib/json/",
       "status": 200,
       "title": "JSON 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/math/",
+      "route": "/agent-dev-foundations/javascript/stdlib/math/",
       "status": 200,
       "title": "Math 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/number/",
+      "route": "/agent-dev-foundations/javascript/stdlib/number/",
       "status": 200,
       "title": "Number 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/object/",
+      "route": "/agent-dev-foundations/javascript/stdlib/object/",
       "status": 200,
       "title": "Object 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/regexp/",
+      "route": "/agent-dev-foundations/javascript/stdlib/regexp/",
       "status": 200,
       "title": "RegExp 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/string/",
+      "route": "/agent-dev-foundations/javascript/stdlib/string/",
       "status": 200,
       "title": "String 对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/stdlib/wrapper/",
+      "route": "/agent-dev-foundations/javascript/stdlib/wrapper/",
       "status": 200,
       "title": "包装对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/types/array/",
+      "route": "/agent-dev-foundations/javascript/types/array/",
       "status": 200,
       "title": "数组 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/types/function/",
+      "route": "/agent-dev-foundations/javascript/types/function/",
       "status": 200,
       "title": "函数 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/types/general/",
+      "route": "/agent-dev-foundations/javascript/types/general/",
       "status": 200,
       "title": "数据类型概述 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/types/null-undefined-boolean/",
+      "route": "/agent-dev-foundations/javascript/types/null-undefined-boolean/",
       "status": 200,
       "title": "null, undefined 和布尔值 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/types/number/",
+      "route": "/agent-dev-foundations/javascript/types/number/",
       "status": 200,
       "title": "数值 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/types/object/",
+      "route": "/agent-dev-foundations/javascript/types/object/",
       "status": 200,
       "title": "对象 · Agent Dev Foundations"
     },
     {
-      "route": "/javascript/types/string/",
+      "route": "/agent-dev-foundations/javascript/types/string/",
       "status": 200,
       "title": "字符串 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/any/",
+      "route": "/agent-dev-foundations/typescript/any/",
       "status": 200,
       "title": "any 类型，unknown 类型，never 类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/array/",
+      "route": "/agent-dev-foundations/typescript/array/",
       "status": 200,
       "title": "TypeScript 的数组类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/assert/",
+      "route": "/agent-dev-foundations/typescript/assert/",
       "status": 200,
       "title": "TypeScript 的类型断言 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/basic/",
+      "route": "/agent-dev-foundations/typescript/basic/",
       "status": 200,
       "title": "TypeScript 基本用法 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/class/",
+      "route": "/agent-dev-foundations/typescript/class/",
       "status": 200,
       "title": "TypeScript 的 class 类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/comment/",
+      "route": "/agent-dev-foundations/typescript/comment/",
       "status": 200,
       "title": "TypeScript 的注释指令 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/d.ts/",
+      "route": "/agent-dev-foundations/typescript/d.ts/",
       "status": 200,
       "title": "d.ts 类型声明文件 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/declare/",
+      "route": "/agent-dev-foundations/typescript/declare/",
       "status": 200,
       "title": "declare 关键字 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/decorator/",
+      "route": "/agent-dev-foundations/typescript/decorator/",
       "status": 200,
       "title": "TypeScript 装饰器 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/decorator-legacy/",
+      "route": "/agent-dev-foundations/typescript/decorator-legacy/",
       "status": 200,
       "title": "装饰器（旧语法） · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/enum/",
+      "route": "/agent-dev-foundations/typescript/enum/",
       "status": 200,
       "title": "TypeScript 的 Enum 类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/es6/",
+      "route": "/agent-dev-foundations/typescript/es6/",
       "status": 200,
       "title": "TypeScript 的 ES6 类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/function/",
+      "route": "/agent-dev-foundations/typescript/function/",
       "status": 200,
       "title": "TypeScript 的函数类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/generics/",
+      "route": "/agent-dev-foundations/typescript/generics/",
       "status": 200,
       "title": "TypeScript 泛型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/",
+      "route": "/agent-dev-foundations/typescript/",
       "status": 200,
       "title": "TypeScript · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/interface/",
+      "route": "/agent-dev-foundations/typescript/interface/",
       "status": 200,
       "title": "TypeScript 的 interface 接口 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/intro/",
+      "route": "/agent-dev-foundations/typescript/intro/",
       "status": 200,
       "title": "TypeScript 语言简介 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/mapping/",
+      "route": "/agent-dev-foundations/typescript/mapping/",
       "status": 200,
       "title": "TypeScript 的类型映射 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/module/",
+      "route": "/agent-dev-foundations/typescript/module/",
       "status": 200,
       "title": "TypeScript 模块 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/namespace/",
+      "route": "/agent-dev-foundations/typescript/namespace/",
       "status": 200,
       "title": "TypeScript namespace · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/narrowing/",
+      "route": "/agent-dev-foundations/typescript/narrowing/",
       "status": 200,
       "title": "TypeScript 类型缩小 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/object/",
+      "route": "/agent-dev-foundations/typescript/object/",
       "status": 200,
       "title": "TypeScript 的对象类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/operator/",
+      "route": "/agent-dev-foundations/typescript/operator/",
       "status": 200,
       "title": "TypeScript 类型运算符 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/symbol/",
+      "route": "/agent-dev-foundations/typescript/symbol/",
       "status": 200,
       "title": "TypeScript 的 symbol 类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/tuple/",
+      "route": "/agent-dev-foundations/typescript/tuple/",
       "status": 200,
       "title": "TypeScript 的元组类型 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/type-operations/",
+      "route": "/agent-dev-foundations/typescript/type-operations/",
       "status": 200,
       "title": "类型运算 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/types/",
+      "route": "/agent-dev-foundations/typescript/types/",
       "status": 200,
       "title": "TypeScript 的类型系统 · Agent Dev Foundations"
     },
     {
-      "route": "/typescript/utility/",
+      "route": "/agent-dev-foundations/typescript/utility/",
       "status": 200,
       "title": "TypeScript 类型工具 · Agent Dev Foundations"
     }
