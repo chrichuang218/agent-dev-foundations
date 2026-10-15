@@ -8,7 +8,7 @@
 
 ![桌面端首页：知识目录与技术入口](docs/screenshots/desktop-home.png)
 
-<details>
+<details open>
 <summary>阅读界面 · 浅色与深色</summary>
 
 ![浅色阅读界面：JavaScript Promise](docs/screenshots/desktop-reading-light.png)
@@ -147,3 +147,11 @@ GitHub Actions 在 main 推送后用 Node.js 24.15.0 执行完整验证，通过
 标题与复制按钮的本地 review 调整及验证见 [READING-POLISH.md](docs/READING-POLISH.md)。
 
 当前版本 v0.1.2：阅读排版与侧栏改进见 [阅读调整记录](docs/READING-TRIAL.md)。
+
+## 致谢
+
+🙏 感谢 [LINUX DO](https://linux.do/) 社区的支持与讨论。
+
+感谢 [网道（WangDoc）](https://github.com/wangdoc)、阮一峰及贡献者提供 HTML、JavaScript、ES6 和 TypeScript 教程。
+
+感谢 [React 团队及中文翻译贡献者](https://zh-hans.react.dev/)，提供清晰、完整的 React 官方中文文档。
