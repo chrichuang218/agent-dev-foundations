@@ -17,6 +17,12 @@
 
 </details>
 
+### 手机端
+
+| 首页 | 深色阅读 | 展开目录 |
+| --- | --- | --- |
+| <img src="docs/screenshots/mobile-home.jpg" alt="手机端首页与知识目录" width="240"> | <img src="docs/screenshots/mobile-reading-dark.jpg" alt="手机端深色阅读：TypeScript 基本用法" width="240"> | <img src="docs/screenshots/mobile-sidebar.jpg" alt="手机端展开章节目录" width="240"> |
+
 ## 内容范围
 
 项目名：`agent-dev-foundations`。本地目录：`D:\Develop\github\agent-dev-foundations`。原名为 TypeScript Guide，本次更名不改变文章 URL 或内容范围。
