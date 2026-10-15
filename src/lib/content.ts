@@ -83,8 +83,8 @@ export function codeBlock(code: string, language = 'text') {
     lang, themes: {light: 'github-light', dark: 'github-dark'},
   });
   const highlighted = html.replace(' tabindex="0"', '').replace('<pre ', `<pre data-lang="${escape(language || 'text')}" `).replace('<code>', `<code class="language-${escape(lang)}" tabindex="0" aria-label="代码，可横向滚动">`);
-  const copy = '<button class="docsify-copy-code-button copy-code" type="button" aria-label="复制代码"><span class="label">复制</span><span class="error" aria-hidden="true">复制失败</span><span class="success" aria-hidden="true">已复制</span><span aria-live="polite"></span></button>';
-  return `<div class="code-block">${highlighted.replace('</pre>', `${copy}</pre>`)}</div>`;
+  const copy = '<button class="copy-code" type="button" aria-label="复制代码"><svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><svg class="copy-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span class="copy-error" aria-hidden="true">复制失败</span><span class="copy-status" aria-live="polite"></span></button>';
+  return `<div class="code-block">${highlighted}${copy}</div>`;
 }
 md.renderer.rules.fence = (tokens, index) => codeBlock(tokens[index].content, tokens[index].info.trim().split(/\s+/)[0] || 'text');
 md.renderer.rules.code_block = (tokens, index) => codeBlock(tokens[index].content);
