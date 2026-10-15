@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#7c5cfc"/><text x="20" y="26" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="white">AF</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#23252b">
+  <style>@media (prefers-color-scheme: dark) { svg { fill: #f6f5f2; } }</style>
+  <path d="M7 53 27 11h10L17 53Zm29-32 21 32H43L30 33Z"/>
+  <path fill="#7c5cfc" d="M23 45h13l5 8H19Z"/>
+</svg>

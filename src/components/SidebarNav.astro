@@ -12,7 +12,15 @@ interface Props {
 }
 const { navigation, section, currentPath } = Astro.props;
 ---
-<div class="app-name"><a class="app-name-link" href={sitePath("/")}>Agent Dev Foundations</a></div>
+<div class="app-name">
+  <a class="app-name-link" href={sitePath("/")} aria-label="Agent Dev Foundations 首页">
+    <svg class="brand-mark" viewBox="0 0 64 64" width="44" height="44" fill="currentColor" aria-hidden="true">
+      <path d="M7 53 27 11h10L17 53Zm29-32 21 32H43L30 33Z" />
+      <path fill="#7c5cfc" d="M23 45h13l5 8H19Z" />
+    </svg>
+    <span class="brand-wordmark"><span class="brand-name">Agent Dev</span><span class="brand-foundations">Foundations</span></span>
+  </a>
+</div>
 <div class="search">
   <div class="input-wrap">
     <input data-search type="search" aria-label="搜索文档" placeholder="搜索文档..." autocomplete="off" />
