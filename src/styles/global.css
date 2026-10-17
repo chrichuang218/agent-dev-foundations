@@ -99,7 +99,60 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 @media (pointer: coarse) { .copy-code { width: 44px; height: 44px; } .markdown-section .code-block pre[data-lang]::after { right: 56px; height: 44px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; animation: none !important; } }
 @media print {
-  .sidebar, .sidebar-toggle, .top-btn-group, .github-corner, .copy-code, .docsify-pagination-container, .back-to-top { display: none !important; }
-  .content { margin: 0 !important; }
+  .sidebar, .sidebar-toggle, .top-btn-group, .github-corner, .copy-code, .docsify-pagination-container, .back-to-top, .mobile-bar, .page-toc { display: none !important; }
+  .content { margin: 0 !important; padding-right: 0 !important; }
   .markdown-section { max-width: none; padding: 0; }
+}
+
+/* Theme toggle draws the same SVG icon on every platform. */
+.dark-toggle-btn svg { display: block; width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dark-toggle-btn .icon-sun, [data-theme="dark"] .dark-toggle-btn .icon-moon { display: none; }
+[data-theme="dark"] .dark-toggle-btn .icon-sun { display: block; }
+
+/* Search stays reachable while the chapter list scrolls; results scroll inside their own panel. */
+.sidebar > .search { position: sticky; top: 0; z-index: 2; background: var(--sidebar-background); }
+.sidebar > .search .results-panel { max-height: calc(100vh - 160px); overflow-y: auto; overscroll-behavior: contain; }
+.sidebar-nav .section-children a, .sidebar-nav .app-sub-sidebar a { white-space: normal; overflow-wrap: anywhere; }
+.sidebar-github, .mobile-bar, .page-toc { display: none; }
+
+/* Wide screens: the current article's outline moves to a right-hand column. */
+@media (min-width: 1360px) {
+  body.has-page-toc .content { padding-right: 264px; }
+  .page-toc {
+    display: block; position: fixed; z-index: 5; top: 96px; right: 24px; width: 216px;
+    max-height: calc(100vh - 128px); overflow-y: auto; padding-left: 14px;
+    border-left: 1px solid var(--reading-border); font-size: 14px;
+  }
+  .page-toc-title { margin: 0 0 8px; padding-left: 8px; font-size: 13px; font-weight: 600; color: var(--heading-color); }
+  .page-toc .app-sub-sidebar { margin: 0; padding: 0; list-style: none; }
+  .page-toc a { display: block; padding: 4px 8px; border-radius: 6px; color: var(--reading-muted); line-height: 1.55; text-decoration: none; }
+  .page-toc a:hover { color: var(--sidebar-nav-link-color--hover); background: var(--reading-hover); }
+  .page-toc li.active > a { color: var(--sidebar-nav-link-color--active); background: var(--reading-active); font-weight: 600; }
+}
+
+/* Phones: a slim top bar holds the menu, page title and theme toggle. */
+@media (max-width: 767px) {
+  :root { --sidebar-width: min(85vw, 320px); }
+  .github-corner { display: none; }
+  .mobile-bar {
+    display: flex; align-items: center; position: fixed; z-index: 9; top: 0; left: 0; right: 0;
+    height: 52px; padding: 0 60px 0 56px; border-bottom: 1px solid var(--reading-border);
+    background: color-mix(in srgb, var(--base-background-color) 88%, transparent);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    transition: transform .25s ease;
+  }
+  .mobile-bar-title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 15px; font-weight: 600; color: var(--heading-color); }
+  /* Closed, the toggle is only the button; open, it still covers the page so a tap closes the menu. */
+  body:not(.close) .sidebar-toggle { bottom: auto; width: 52px; height: 52px; max-width: none; }
+  .sidebar-toggle .sidebar-toggle-button { top: 8px; left: 8px; width: 36px; height: 36px; border-radius: 8px; background: transparent; }
+  .top-btn-group { top: 9px; right: 12px; transition: transform .25s ease; }
+  body.close .mobile-bar, body.close .top-btn-group { transform: translateX(var(--sidebar-width)); }
+  body.bar-hidden:not(.close) .mobile-bar, body.bar-hidden:not(.close) .top-btn-group,
+  body.bar-hidden:not(.close) .sidebar-toggle { transform: translateY(-60px); }
+  .sidebar-github {
+    display: flex; order: 2; align-items: center; gap: 8px; margin-top: auto; padding: 18px 0 28px;
+    border-top: 1px solid var(--sidebar-border-color); color: var(--sidebar-nav-link-color); font-size: 15px; text-decoration: none;
+  }
+  .markdown-section [id] { scroll-margin-top: 68px; }
+  .markdown-section .code-block pre code { font-size: 14px; }
 }

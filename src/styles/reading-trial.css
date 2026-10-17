@@ -21,6 +21,9 @@
   --reading-hover: #eff1f6;
   --reading-muted: #626d80;
   --reading-border: #e5e8f0;
+  --blockquote-border-color: #d5d9e3;
+  --blockquote-background: #f7f8fb;
+  --blockquote-color: var(--base-color);
 }
 [data-theme="dark"] {
   --base-color: #c6cad7;
@@ -39,9 +42,12 @@
   --reading-hover: #222435;
   --reading-muted: #989fb2;
   --reading-border: #323548;
+  --blockquote-border-color: #3d4058;
+  --blockquote-background: #1c1e2e;
+  --blockquote-color: var(--base-color);
 }
 
-.markdown-section { max-width: 960px; padding: 48px 48px 64px; }
+.markdown-section { max-width: 820px; padding: 48px 48px 64px; }
 .markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4 {
   font-family: var(--base-font-family); color: var(--heading-color);
 }
@@ -62,7 +68,9 @@
 .markdown-section .table-scroll { margin: 24px 0; border: 1px solid var(--reading-border); border-radius: 12px; }
 .markdown-section .table-scroll table { margin: 0; }
 .markdown-section th, .markdown-section td { padding: 14px 18px; line-height: 1.7; }
-.markdown-section blockquote { border-radius: 0 10px 10px 0; }
+.markdown-section blockquote { border-left-width: 3px; border-radius: 0 10px 10px 0; padding: 14px 20px; }
+.markdown-section blockquote > :first-child { margin-top: 0; }
+.markdown-section blockquote > :last-child { margin-bottom: 0; }
 
 .sidebar > .app-name { font-size: 21px; font-weight: 600; letter-spacing: -.025em; }
 .sidebar-nav > ul > .nav-section > p { margin-top: 12px; }
@@ -79,7 +87,7 @@
 .sidebar-nav .app-sub-sidebar li.active > a { color: var(--sidebar-nav-link-color--active); background-color: var(--reading-active); }
 
 @media (max-width: 767px) {
-  .markdown-section { padding: 70px 22px 40px; }
+  .markdown-section { padding: 76px 22px 40px; }
   .markdown-section .prose > p:first-child { font-size: 19px; }
   .markdown-section .code-block pre code { padding: 42px 16px 18px; }
   .markdown-section th, .markdown-section td { padding: 12px; }

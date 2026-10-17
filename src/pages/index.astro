@@ -68,8 +68,13 @@ a.subject-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px #231b4410
 .home .card-copy p{font-size:13px;line-height:1.75;color:var(--muted);margin:0}
 
 :global([data-theme="dark"]) .home{--surface:#202130;--line:#333447;--muted:#a7a8ba}
+/* Subjects without site content yet are shown faded and grayscale. */
+div.subject-card{opacity:.55;box-shadow:none}div.subject-card .preview{filter:grayscale(1)}
 @media(max-width:1200px){.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-art{max-width:300px}.orb{font-size:13px;margin-left:-6px}}
-@media(max-width:767px){:global(.markdown-section:has(.home)){padding:80px 24px 30px}.hero{display:block;padding:0 0 40px;min-height:0}.hero-art{display:none}.home h1{font-size:42px}.home .intro{font-size:14px}.home h2{font-size:23px}.subject-grid{gap:12px}.preview{height:125px;padding:12px}.subject-card{padding:9px;border-radius:18px}.home h3{font-size:18px}}
-@media(max-width:359px){.subject-grid{grid-template-columns:1fr}}
+@media(max-width:767px){:global(.markdown-section:has(.home)){padding:80px 20px 30px}.hero{display:block;padding:0 0 32px;min-height:0}.hero-art{display:none}.home h1{font-size:40px}.home .intro{font-size:14px}.home h2{font-size:23px;margin-bottom:16px}
+  /* One row per subject keeps all eight entries within about a screen and a half. */
+  .subject-grid{grid-template-columns:1fr;gap:10px}.subject-card{flex-direction:row;align-items:center;gap:14px;padding:8px;border-radius:16px}
+  .preview{flex:none;justify-content:center;width:76px;height:76px;padding:0;border-radius:11px}.caption{display:none}.language-logo{width:44px;height:44px}.es6-mark{padding:4px;font-size:16px;letter-spacing:-.5px}
+  .card-copy{padding:2px 6px 2px 0}.home h3{font-size:17px;margin:0 0 4px}.home .card-copy p{font-size:13px;line-height:1.6}}
 @media(prefers-reduced-motion:reduce){.orb{animation:none}.subject-card{transition:none}a.subject-card:hover{transform:none}}
 </style>

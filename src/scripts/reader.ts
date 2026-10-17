@@ -30,7 +30,10 @@ function revealSidebarItem(element: HTMLElement, item: HTMLElement | null) {
   if (!item || !item.getClientRects().length) return;
   const bounds = element.getBoundingClientRect();
   const position = item.getBoundingClientRect();
-  if (position.top < bounds.top + 8) element.scrollTop += position.top - bounds.top - 8;
+  // The sticky search box covers the top of the sidebar once the list scrolls.
+  const search = element.querySelector<HTMLElement>(':scope > .search');
+  const top = Math.max(bounds.top, search?.getBoundingClientRect().bottom ?? bounds.top);
+  if (position.top < top + 8) element.scrollTop += position.top - top - 8;
   else if (position.bottom > bounds.bottom - 8) element.scrollTop += position.bottom - bounds.bottom + 8;
 }
 
@@ -100,6 +103,27 @@ document.querySelectorAll<HTMLButtonElement>('.chapter-toggle').forEach(link => 
   });
 });
 
+// Clicking the chapter already open toggles its outline instead of reloading the page.
+document.querySelectorAll<HTMLAnchorElement>('.chapter-item > a[aria-current="page"]').forEach(link => {
+  link.addEventListener('click', event => {
+    const toggle = link.parentElement?.querySelector<HTMLButtonElement>(':scope > .chapter-toggle');
+    if (!toggle || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    toggle.click();
+  });
+});
+
+// Remember where a chapter link sat so the next page can keep it in the same place.
+sidebar?.addEventListener('click', event => {
+  const link = (event.target as Element).closest<HTMLAnchorElement>('.chapter-item > a[href]');
+  if (!link || mobile.matches || event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || link.pathname === location.pathname) return;
+  try {
+    sessionStorage.setItem('typescript-guide:sidebar-anchor', String(link.getBoundingClientRect().top - sidebar.getBoundingClientRect().top));
+  } catch {
+    // Without storage the saved scroll position alone is restored.
+  }
+});
+
 sidebar?.addEventListener('click', event => {
   if (!mobile.matches || event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   const link = (event.target as Element).closest<HTMLAnchorElement>('a[href]');
@@ -121,7 +145,6 @@ const darkToggle = document.querySelector<HTMLButtonElement>('#dark-toggle');
 function updateThemeButton() {
   const dark = document.documentElement.dataset.theme === 'dark';
   if (!darkToggle) return;
-  darkToggle.textContent = dark ? '☀️' : '🌙';
   darkToggle.setAttribute('aria-pressed', String(dark));
   darkToggle.setAttribute('aria-label', dark ? '切换浅色模式' : '切换深色模式');
   darkToggle.title = dark ? '切换浅色模式' : '切换深色模式';
@@ -137,6 +160,16 @@ darkToggle?.addEventListener('click', () => {
   updateThemeButton();
 });
 updateThemeButton();
+// Follow system changes until the reader picks a theme explicitly.
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+  try {
+    if (localStorage.getItem('theme')) return;
+  } catch {
+    // Without storage there is no saved choice to respect.
+  }
+  document.documentElement.dataset.theme = event.matches ? 'dark' : 'light';
+  updateThemeButton();
+});
 
 document.querySelectorAll<HTMLButtonElement>('button.copy-code').forEach(button => {
   let resetTimer = 0;
@@ -183,6 +216,8 @@ function updateReadingPosition() {
     else item.link.removeAttribute('aria-current');
   }
   if (current && current !== previousHeading) {
+    const toc = document.querySelector<HTMLElement>('.page-toc');
+    if (toc?.getClientRects().length) revealSidebarItem(toc, toc.querySelector<HTMLElement>('.section-link[aria-current="location"]'));
     if (sidebar && sidebarIsVisible() && !sidebar.matches(':hover') && !sidebar.contains(document.activeElement) && !sidebar.querySelector<HTMLInputElement>('[data-search]')?.value.trim()) {
       revealSidebarItem(sidebar, sidebar.querySelector<HTMLElement>('.section-link[aria-current="location"]'));
     }
@@ -190,11 +225,21 @@ function updateReadingPosition() {
   previousHeading = current;
   scheduled = false;
 }
+let lastScrollY = window.scrollY;
+function updateScrollChrome() {
+  // On phones the top bar slides away while reading down and returns on scroll up.
+  const delta = window.scrollY - lastScrollY;
+  if (window.scrollY < 64 || delta < -4) document.body.classList.remove('bar-hidden');
+  else if (delta > 4 && !(mobile.matches && sidebarIsVisible())) document.body.classList.add('bar-hidden');
+  if (Math.abs(delta) > 4) lastScrollY = window.scrollY;
+}
 window.addEventListener('scroll', () => {
+  requestAnimationFrame(updateScrollChrome);
   if (!scheduled) {
     scheduled = true;
     requestAnimationFrame(updateReadingPosition);
   }
 }, { passive: true });
-window.addEventListener('resize', updateReadingPosition);
+window.addEventListener('resize', () => { updateReadingPosition(); updateScrollChrome(); });
+updateScrollChrome();
 updateReadingPosition();
