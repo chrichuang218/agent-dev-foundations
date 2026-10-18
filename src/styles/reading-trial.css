@@ -87,7 +87,7 @@
 .sidebar-nav .app-sub-sidebar li.active > a { color: var(--sidebar-nav-link-color--active); background-color: var(--reading-active); }
 
 @media (max-width: 767px) {
-  .markdown-section { padding: 76px 22px 40px; }
+  .markdown-section { padding: 70px 22px 40px; }
   .markdown-section .prose > p:first-child { font-size: 19px; }
   .markdown-section .code-block pre code { padding: 42px 16px 18px; }
   .markdown-section th, .markdown-section td { padding: 12px; }
