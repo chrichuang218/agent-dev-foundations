@@ -225,21 +225,11 @@ function updateReadingPosition() {
   previousHeading = current;
   scheduled = false;
 }
-let lastScrollY = window.scrollY;
-function updateScrollChrome() {
-  // On phones the top bar slides away while reading down and returns on scroll up.
-  const delta = window.scrollY - lastScrollY;
-  if (window.scrollY < 64 || delta < -4) document.body.classList.remove('bar-hidden');
-  else if (delta > 4 && !(mobile.matches && sidebarIsVisible())) document.body.classList.add('bar-hidden');
-  if (Math.abs(delta) > 4) lastScrollY = window.scrollY;
-}
 window.addEventListener('scroll', () => {
-  requestAnimationFrame(updateScrollChrome);
   if (!scheduled) {
     scheduled = true;
     requestAnimationFrame(updateReadingPosition);
   }
 }, { passive: true });
-window.addEventListener('resize', () => { updateReadingPosition(); updateScrollChrome(); });
-updateScrollChrome();
+window.addEventListener('resize', updateReadingPosition);
 updateReadingPosition();
