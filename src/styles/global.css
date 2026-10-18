@@ -130,7 +130,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .page-toc li.active > a { color: var(--sidebar-nav-link-color--active); background: var(--reading-active); font-weight: 600; }
 }
 
-/* Phones: a slim top bar holds the menu, page title and theme toggle. */
+/* Phones: a slim fixed top bar holds the menu, page title and theme toggle. */
 @media (max-width: 767px) {
   :root { --sidebar-width: min(85vw, 320px); }
   .github-corner { display: none; }
@@ -147,8 +147,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .sidebar-toggle .sidebar-toggle-button { top: 8px; left: 8px; width: 36px; height: 36px; border-radius: 8px; background: transparent; }
   .top-btn-group { top: 9px; right: 12px; transition: transform .25s ease; }
   body.close .mobile-bar, body.close .top-btn-group { transform: translateX(var(--sidebar-width)); }
-  body.bar-hidden:not(.close) .mobile-bar, body.bar-hidden:not(.close) .top-btn-group,
-  body.bar-hidden:not(.close) .sidebar-toggle { transform: translateY(-60px); }
   .sidebar-github {
     display: flex; order: 2; align-items: center; gap: 8px; margin-top: auto; padding: 18px 0 28px;
     border-top: 1px solid var(--sidebar-border-color); color: var(--sidebar-nav-link-color); font-size: 15px; text-decoration: none;
