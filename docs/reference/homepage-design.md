@@ -12,7 +12,8 @@
 - 主标题为“打好基础，驾驭 Agent。”，副标题为“从语言、框架到工程实践，积累 Agent 开发所需的基础知识。”
 - 首屏右侧使用 A 标记及技术图标组成错位圆点，轻微 CSS 浮动；减少动态效果时停止动画，小屏隐藏。
 - 八张卡片保留图标、分类标签、编号及简短内容介绍。删除篇数、重复导航文案、主题推荐区、常用链接和页尾口号。
-- HTML、JavaScript、ES6、TypeScript 指向现有目录。React 指向 https://zh-hans.react.dev/learn；Next.js、Node.js、Python 使用无链接容器，无键盘焦点或悬停位移动效。
+- HTML、JavaScript、ES6、TypeScript 指向现有目录。React 指向 https://zh-hans.react.dev/learn。
+- 2026-10-20（v0.1.7）：Next.js、Node.js、Python 改为外部入口，分别指向 https://nextjscn.org/docs 、https://nodejs.cn/learn 、https://docs.python.org/zh-cn/3/tutorial/ 。前两者是社区翻译站，与官方无关；没有开放许可，因此只做外链，不收录正文。此前三张卡片为无链接容器，淡色灰度显示；该样式仍保留给今后没有链接的卡片。
 - 未新增本地教程、路由或侧栏分区，125 篇正文保持不变。
 - 桌面首页顶部留白 40px，标题最大 46px，标题区最小高度 190px；卡片尺寸不变。当前约 1920×919 窗口可容纳两行卡片，较矮窗口自然滚动。
 - 1200px 以下卡片两列，359px 以下单列；手机保留独立顶部留白。

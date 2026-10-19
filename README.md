@@ -38,7 +38,9 @@
 | ES6 | 现代语法、模块、Promise 与异步函数 | 37 篇 |
 | TypeScript | 类型系统、泛型及项目配置 | 33 篇 |
 | React | [官方中文文档](https://zh-hans.react.dev/learn) | 外部入口 |
-| Next.js / Node.js / Python | 首页展示 | 暂无站内教程 |
+| Next.js | [Next.js 中文文档](https://nextjscn.org/docs)（社区翻译） | 外部入口 |
+| Node.js | [Node.js 中文网 · 学习](https://nodejs.cn/learn)（社区翻译） | 外部入口 |
+| Python | [官方中文教程](https://docs.python.org/zh-cn/3/tutorial/) | 外部入口 |
 
 本站共收录 **125 篇**，主体来自阮一峰及网道贡献者编写的教程，保留完整正文。TypeScript 分区包含 6 篇项目配置文章。
 
