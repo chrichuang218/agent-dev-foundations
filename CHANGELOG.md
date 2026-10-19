@@ -1,5 +1,10 @@
 # 更新记录
 
+## v0.1.7 — 2026-10-20
+
+- 首页 Next.js、Node.js、Python 卡片改为外部入口，不再灰显：Next.js 指向 [Next.js 16 中文文档](https://nextjscn.org/docs)，Node.js 指向 [Node.js 中文网 · 学习](https://nodejs.cn/learn)，Python 指向 [官方中文教程](https://docs.python.org/zh-cn/3/tutorial/)。
+- Next.js 与 Node.js 的链接目标是社区翻译站，没有开放许可，因此只做外链，不收录正文；“关于”页已说明。125 篇本地正文及原有 URL 不变。
+
 ## v0.1.6 — 2026-10-18
 
 - 手机端恢复为 v0.1.3 的样式：去掉 v0.1.4 新增的手机顶栏，目录按钮、侧栏宽度（260px）、右上角 GitHub 角标、正文边距和首页两列卡片均恢复原样。v0.1.4 的顶栏在 iPhone 上会盖住目录按钮，导致目录无法打开。

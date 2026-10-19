@@ -2,6 +2,12 @@
 
 日期：2026-10-13（Asia/Shanghai）。本记录区分正文完整性、网站功能和示例检查，不把构建通过等同于教程全部语义正确。
 
+## v0.1.7 发布前验收 — 2026-10-20
+
+用户明确授权将首页 Next.js、Node.js、Python 卡片改为外部入口，并提交、合并、发布与部署。三张卡片分别指向 https://nextjscn.org/docs 、https://nodejs.cn/learn 、https://docs.python.org/zh-cn/3/tutorial/ ；正文、路由与侧栏不变。使用 `SITE_BASE=/agent-dev-foundations/` 执行 `npm run verify` 全部通过：133 个页面、125 篇文章，站点与搜索检查无错误，8 个 JSON 示例和 1 个选定 TypeScript 示例通过。
+
+浏览器验证（本地开发服务器，Chromium）：首页八张卡片均为链接，三张原灰显卡片的不透明度为 1、无灰度滤镜，链接地址与上述一致。未打开目标外站逐页核查，目标站内容以 2026-10-19 调研时为准。
+
 ## v0.1.6 发布前验收 — 2026-10-18
 
 用户明确授权提交 PR、合并、发布与部署。v0.1.5 上线后用户在 iPhone 上发现目录按钮仍不可见：v0.1.4 新增的手机顶栏在 `<main>` 外，目录按钮在 `<main>` 内，WebKit 中顶栏会盖住按钮。按用户要求将手机端恢复为 v0.1.3 样式（去掉顶栏，恢复目录按钮、260px 侧栏、GitHub 角标、正文边距和首页两列卡片），桌面端改动保留。使用 `SITE_BASE=/agent-dev-foundations/` 执行 `npm run verify` 全部通过：类型检查零诊断，站点与搜索检查无错误，8 个 JSON 示例和 1 个选定 TypeScript 示例通过。

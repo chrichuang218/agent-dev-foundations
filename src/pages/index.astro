@@ -7,9 +7,9 @@ const labels = ['STRUCTURE', 'RUNTIME', 'MODERN JAVASCRIPT', 'TYPE SYSTEM'];
 const cards = [
   ...navigation.map((section, i) => ({ ...section, href: sitePath(section.href), logo: logos[i], caption: labels[i] })),
   { id: 'react', label: 'React', href: 'https://zh-hans.react.dev/learn', logo: 'react.svg', caption: 'USER INTERFACE', description: '构建交互界面。从组件与事件，到状态管理与 Hooks。' },
-  { id: 'nextjs', label: 'Next.js', href: undefined, logo: 'nextjs.svg', caption: 'FULL STACK', description: '基于 React 的应用框架。路由、服务端渲染与数据获取。' },
-  { id: 'nodejs', label: 'Node.js', href: undefined, logo: 'nodejs.svg', caption: 'SERVER SIDE', description: '在服务端运行 JavaScript。文件、进程、网络与异步任务。' },
-  { id: 'python', label: 'Python', href: undefined, logo: 'python.svg', caption: 'LANGUAGE', description: '从脚本自动化到 AI 应用。语言基础、数据处理与工具集成。' },
+  { id: 'nextjs', label: 'Next.js', href: 'https://nextjscn.org/docs', logo: 'nextjs.svg', caption: 'FULL STACK', description: '基于 React 的应用框架。路由、服务端渲染与数据获取。' },
+  { id: 'nodejs', label: 'Node.js', href: 'https://nodejs.cn/learn', logo: 'nodejs.svg', caption: 'SERVER SIDE', description: '在服务端运行 JavaScript。文件、进程、网络与异步任务。' },
+  { id: 'python', label: 'Python', href: 'https://docs.python.org/zh-cn/3/tutorial/', logo: 'python.svg', caption: 'LANGUAGE', description: '从脚本自动化到 AI 应用。语言基础、数据处理与工具集成。' },
 ];
 ---
 <GuideLayout title="Agent Dev Foundations" description="面向后端程序员的 Agent 开发基础知识，涵盖 HTML、JavaScript、ES6、TypeScript 与项目配置。" currentPath="/" navigation={navigation} headings={[{depth:2,slug:'browse',text:'浏览知识目录'}]}>
